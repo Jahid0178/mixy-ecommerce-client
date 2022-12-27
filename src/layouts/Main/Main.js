@@ -1,0 +1,14 @@
+import Footer from "../../components/Footer/Footer";
+import Navbar from "../../components/Navbar/Navbar";
+
+const Main = ({ children, isAbout }) => {
+  return (
+    <div>
+      <Navbar />
+      {children}
+      {isAbout ? null : <Footer />}
+    </div>
+  );
+};
+
+export default Main;
