@@ -11,7 +11,7 @@ const Newsletter = () => {
       <div className={styles.newsletterTop}>
         <div className="container">
           <Row align="middle" gutter={[20, 20]}>
-            <Col span={8} xs={24} sm={24} md={12} lg={8}>
+            <Col span={8} xs={24} sm={24} md={12} lg={7}>
               <div className={styles.couponBox}>
                 <div>
                   <BsEnvelope size={50} />
@@ -22,7 +22,7 @@ const Newsletter = () => {
                 </div>
               </div>
             </Col>
-            <Col span={8} xs={24} sm={24} md={12} lg={8}>
+            <Col span={8} xs={24} sm={24} md={12} lg={9}>
               <form action="#">
                 <div className={styles.inputWrapper}>
                   <input

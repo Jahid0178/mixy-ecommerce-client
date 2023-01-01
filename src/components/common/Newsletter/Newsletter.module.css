@@ -56,7 +56,7 @@
 
 .inputWrapper input[type="email"] {
   width: 100%;
-  padding: 0.8rem 5.2rem 0.8rem 1rem;
+  padding: 1rem 6.8rem 1rem 1.5rem;
   border: 0;
   border-radius: 5rem;
   font-size: 1rem;
@@ -74,6 +74,7 @@
   border-radius: 5rem;
   cursor: pointer;
   transition: 0.5s;
+  font-size: 1rem;
 }
 
 .inputWrapper input[type="submit"]:hover {

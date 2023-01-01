@@ -15,18 +15,18 @@ import Link from "next/link";
 
 const items = [
   {
-    label: <a href="https://www.antgroup.com">1st menu item</a>,
+    label: <a href="https://www.antgroup.com">Our special products</a>,
     key: "0",
   },
   {
-    label: <a href="https://www.aliyun.com">2nd menu item</a>,
+    label: <a href="https://www.aliyun.com">Our best sales</a>,
     key: "1",
   },
   {
     type: "divider",
   },
   {
-    label: "3rd menu item",
+    label: "New Arrivals",
     key: "3",
   },
 ];
