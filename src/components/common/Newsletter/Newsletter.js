@@ -6,7 +6,6 @@ import { SlSupport } from "react-icons/sl";
 import styles from "./Newsletter.module.css";
 
 const Newsletter = () => {
-  console.log(styles);
   return (
     <div>
       <div className={styles.newsletterTop}>
