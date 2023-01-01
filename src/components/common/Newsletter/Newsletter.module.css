@@ -1,0 +1,81 @@
+.newsletterTop {
+  color: #fff;
+  background-color: #184d47;
+  padding: 3rem 0;
+}
+
+.couponBox {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.couponBox div > h1 {
+  margin-bottom: 0.8rem;
+}
+
+.callUs {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: #043c36;
+  padding: 1rem;
+  border-radius: 1rem;
+  justify-content: center;
+}
+
+.callUs > div p {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.callUs > div a {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.callUs > div a:hover {
+  color: #15bd68;
+}
+
+.boxInfo {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+.boxInfo h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputWrapper input[type="email"] {
+  width: 100%;
+  padding: 0.8rem 5.2rem 0.8rem 1rem;
+  border: 0;
+  border-radius: 5rem;
+  font-size: 1rem;
+}
+
+.inputWrapper input[type="submit"] {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  padding: 0.5rem 1rem;
+  border: 0;
+  background-color: #15bd68;
+  color: #fff;
+  border-radius: 5rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.inputWrapper input[type="submit"]:hover {
+  background-color: #184d47;
+}

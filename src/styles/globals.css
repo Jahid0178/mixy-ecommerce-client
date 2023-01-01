@@ -10,8 +10,19 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 0;
+}
+
 ul {
   list-style-type: none;
+  margin-bottom: 0;
 }
 
 ul li {
@@ -22,9 +33,114 @@ ul li {
   color: #333 !important;
 } */
 
+input {
+  outline: none;
+  color: #000;
+}
+
 .container {
   max-width: 1300px;
   width: 100%;
-  margin: auto;
-  padding: 0.5rem 1rem;
+  margin: auto !important;
+  padding: 1rem 0.5rem;
+}
+
+.navbar-container {
+  background-color: #184d47;
+}
+
+/* Buttons start here */
+
+.dropdown-menu {
+  background-color: #15bd68;
+  padding: 0.7rem 5rem;
+  color: #fff;
+  font-weight: 500;
+  border-radius: 50px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dropdown-menu:hover {
+  color: #fff;
+}
+
+/* Buttons end here */
+
+.link {
+  color: #333;
+  transition: 0.5s;
+}
+
+.link:hover {
+  color: #15bd68;
+  transition: 0.5s;
+}
+
+.link-ul li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.link-ul .link-list a {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e5e5e5;
+  border-radius: 50px;
+  transition: 0.3s;
+  color: #000;
+}
+
+.link-ul .link-list a:hover {
+  color: #fff;
+  background-color: #15bd68;
+  transition: 0.3s;
+}
+
+.nav-link {
+  color: #fff;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #15bd68;
+}
+
+.input-wrapper {
+  display: flex;
+}
+
+.input-wrapper input {
+  width: 100%;
+  outline: none;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ededed;
+  background-color: rgb(245, 245, 245);
+  font-size: 1rem;
+  border-radius: 50px 0 0 50px;
+  border-right: 0;
+}
+
+.input-wrapper button {
+  border: 1px solid #ededed;
+  background-color: rgb(245, 245, 245);
+  border-left: 0;
+  padding: 0.7rem 1.5rem 0.7rem 1.1rem;
+  border-radius: 0 50px 50px 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.input-wrapper button:hover {
+  background: #15bd68;
+  transition: 0.3s;
+}
+
+.input-wrapper button:hover svg {
+  fill: #fff;
 }
