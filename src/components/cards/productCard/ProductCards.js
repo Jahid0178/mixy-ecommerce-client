@@ -29,7 +29,7 @@ const ProductCards = ({ product }) => {
       >
         <Meta title={title} description={description.slice(0, 50) + "..."} />
         <p className={styles.price}>${price}</p>
-        <Tag color="#f50">Category: {category}</Tag>
+        <Tag color="#f50">Category: {category ? category : null}</Tag>
       </Card>
     </>
   );
