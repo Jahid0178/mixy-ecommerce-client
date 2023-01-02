@@ -48,6 +48,49 @@
   font-family: var(--font-secondary);
 }
 
+.homeBanner {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.3rem;
+}
+
+.homeBanner img {
+  width: 100%;
+  transition: 0.5s;
+}
+
+.homeBanner:hover img {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+.homeBannerContent {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  bottom: 0;
+  padding: 1rem 2rem;
+  transform: translateY(-50%);
+}
+
+.homeBannerContent p {
+  font-size: 1.4rem;
+}
+
+.homeBannerContent h2 {
+  margin: 0.3rem 0;
+  font-weight: bold;
+}
+
+.homeBannerContent h3 {
+  color: #da2e1f;
+  padding-top: 0.5rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--font-secondary);
+}
+
 /* Responsive */
 @media only screen and (max-width: 688px) {
   .topBannerContainer {

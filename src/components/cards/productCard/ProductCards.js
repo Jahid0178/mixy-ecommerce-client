@@ -28,7 +28,7 @@ const ProductCards = ({ product }) => {
           <EllipsisOutlined key="ellipsis" />,
         ]}
       >
-        <Rate disabled allowHalf value={rating} />
+        <Rate disabled allowHalf value={rating} style={{ fontSize: "16px" }} />
         <Meta title={title} description={description.slice(0, 50) + "..."} />
         <p className={styles.price}>${price}</p>
         <Tag color="#f50">Category: {category ? category : null}</Tag>

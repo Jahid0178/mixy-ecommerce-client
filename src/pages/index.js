@@ -4,8 +4,10 @@ import ProductCards from "../components/cards/productCard/ProductCards";
 import Newsletter from "../components/common/Newsletter/Newsletter";
 import HeroSlider from "../components/sliders/HeroSlider/HeroSlider";
 import Image from "next/image";
-import BannerOne from "/public/assets/banners/top_banner_1.jpg";
-import BannerTwo from "/public/assets/banners/top_banner_2.jpg";
+import BannerOne from "/public/assets/banners/home_banner1.jpg";
+import BannerTwo from "/public/assets/banners/home_banner2.jpg";
+import BannerThree from "/public/assets/banners/home_banner3.jpg";
+import BannerFour from "/public/assets/banners/home_banner4.jpg";
 import styles from "../styles/Home.module.css";
 import { Col, Row } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -144,6 +146,29 @@ const Home = () => {
                     </SwiperSlide>
                   ))}
                 </Swiper>
+              </Col>
+            </Row>
+          </div>
+        </section>
+
+        <section>
+          <div className="container">
+            <Row gutter={[20, 20]}>
+              <Col sm={24} md={12} lg={16} className={styles.homeBanner}>
+                <Image src={BannerThree} alt="Bottom Banner" />
+                <div className={styles.homeBannerContent}>
+                  <p>100% Natural Organic</p>
+                  <h2>Strawberry Velvet Cake</h2>
+                  <h3>$30.66</h3>
+                </div>
+              </Col>
+              <Col sm={24} md={12} lg={8} className={styles.homeBanner}>
+                <Image src={BannerFour} alt="Bottom Banner" />
+                <div className={styles.homeBannerContent}>
+                  <p>Organic</p>
+                  <h2>Nuts</h2>
+                  <h3>$26.88</h3>
+                </div>
               </Col>
             </Row>
           </div>
