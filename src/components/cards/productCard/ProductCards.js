@@ -1,8 +1,8 @@
 import { Card, Rate, Tag } from "antd";
 import {
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
+  EyeOutlined,
+  HeartOutlined,
+  ShoppingCartOutlined,
 } from "@ant-design/icons";
 import styles from "./productCard.module.css";
 
@@ -23,9 +23,9 @@ const ProductCards = ({ product }) => {
           />
         }
         actions={[
-          <SettingOutlined key="setting" />,
-          <EditOutlined key="edit" />,
-          <EllipsisOutlined key="ellipsis" />,
+          <ShoppingCartOutlined key="Cart" title="Cart" />,
+          <EyeOutlined key="Quick View" title="Quick View" />,
+          <HeartOutlined key="Wishlist" title="Wishlist" />,
         ]}
       >
         <Rate disabled allowHalf value={rating} style={{ fontSize: "16px" }} />
