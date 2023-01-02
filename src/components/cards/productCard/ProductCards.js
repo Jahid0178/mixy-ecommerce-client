@@ -1,4 +1,4 @@
-import { Card, Tag } from "antd";
+import { Card, Rate, Tag } from "antd";
 import {
   EditOutlined,
   EllipsisOutlined,
@@ -9,7 +9,8 @@ import styles from "./productCard.module.css";
 const { Meta } = Card;
 
 const ProductCards = ({ product }) => {
-  const { title, price, description, thumbnail, category } = product;
+  console.log(product);
+  const { title, price, description, thumbnail, category, rating } = product;
   return (
     <>
       <Card
@@ -27,6 +28,7 @@ const ProductCards = ({ product }) => {
           <EllipsisOutlined key="ellipsis" />,
         ]}
       >
+        <Rate disabled allowHalf value={rating} />
         <Meta title={title} description={description.slice(0, 50) + "..."} />
         <p className={styles.price}>${price}</p>
         <Tag color="#f50">Category: {category ? category : null}</Tag>

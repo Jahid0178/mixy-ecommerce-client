@@ -149,6 +149,15 @@ const Home = () => {
           </div>
         </section>
 
+        <section>
+          <div className="container">
+            <div className="pos-title">
+              <h2>Popular Categories</h2>
+              <p>Some of our popular categories include products</p>
+            </div>
+          </div>
+        </section>
+
         <Newsletter />
       </main>
     </>
