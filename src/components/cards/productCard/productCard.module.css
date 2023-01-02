@@ -1,0 +1,7 @@
+.price {
+  color: #da2e1f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  font-family: var(--font-secondary);
+  margin-top: 0.5rem;
+}
