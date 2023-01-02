@@ -9,7 +9,6 @@ import styles from "./productCard.module.css";
 const { Meta } = Card;
 
 const ProductCards = ({ product }) => {
-  console.log(product);
   const { title, price, description, thumbnail, category, rating } = product;
   return (
     <>
@@ -23,9 +22,21 @@ const ProductCards = ({ product }) => {
           />
         }
         actions={[
-          <ShoppingCartOutlined key="Cart" title="Cart" />,
-          <EyeOutlined key="Quick View" title="Quick View" />,
-          <HeartOutlined key="Wishlist" title="Wishlist" />,
+          <ShoppingCartOutlined
+            key="Cart"
+            title="Cart"
+            onClick={() => console.log("You clicked cart")}
+          />,
+          <EyeOutlined
+            key="Quick View"
+            title="Quick View"
+            onClick={() => console.log("You clicked quick view")}
+          />,
+          <HeartOutlined
+            key="Wishlist"
+            title="Wishlist"
+            onClick={() => console.log("You clicked wishlist")}
+          />,
         ]}
       >
         <Rate disabled allowHalf value={rating} style={{ fontSize: "16px" }} />

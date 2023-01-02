@@ -37,19 +37,29 @@ const Footer = () => {
           <Title level={4}>Information</Title>
           <ul>
             <li>
-              <Link href="#">Delivery</Link>
+              <Link href="#" className="footer-link">
+                Delivery
+              </Link>
             </li>
             <li>
-              <Link href="#">Secure Payment</Link>
+              <Link href="#" className="footer-link">
+                Secure Payment
+              </Link>
             </li>
             <li>
-              <Link href="#">Contact Us</Link>
+              <Link href="#" className="footer-link">
+                Contact Us
+              </Link>
             </li>
             <li>
-              <Link href="#">Sitemap</Link>
+              <Link href="#" className="footer-link">
+                Sitemap
+              </Link>
             </li>
             <li>
-              <Link href="#">Stores</Link>
+              <Link href="#" className="footer-link">
+                Stores
+              </Link>
             </li>
           </ul>
         </Col>
@@ -57,19 +67,29 @@ const Footer = () => {
           <Title level={4}>Custom Links</Title>
           <ul>
             <li>
-              <Link href="#">Legal Notice</Link>
+              <Link href="#" className="footer-link">
+                Legal Notice
+              </Link>
             </li>
             <li>
-              <Link href="#">Price Drop</Link>
+              <Link href="#" className="footer-link">
+                Price Drop
+              </Link>
             </li>
             <li>
-              <Link href="#">New Products</Link>
+              <Link href="#" className="footer-link">
+                New Products
+              </Link>
             </li>
             <li>
-              <Link href="#">Best Sales</Link>
+              <Link href="#" className="footer-link">
+                Best Sales
+              </Link>
             </li>
             <li>
-              <Link href="#">Login</Link>
+              <Link href="#" className="footer-link">
+                Login
+              </Link>
             </li>
           </ul>
         </Col>

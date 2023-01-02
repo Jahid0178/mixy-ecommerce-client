@@ -69,6 +69,10 @@ section {
   font-size: 0.8rem;
 }
 
+.footer-link {
+  color: #000 !important;
+}
+
 .navbar-container {
   background-color: #184d47;
 }
