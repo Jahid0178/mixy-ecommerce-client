@@ -1,0 +1,32 @@
+.contactForm input[type="text"],
+.contactForm input[type="number"],
+.contactForm input[type="email"],
+.contactForm textarea {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin: 0.5rem 0;
+}
+
+.contactForm input[type="submit"] {
+  color: #fff;
+  background: #000;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  border: none;
+}
+
+.informationContent > li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.informationContent > li .iconBox {
+  padding: 0.6rem;
+  border-radius: 0.3rem;
+  background: #184d47;
+}

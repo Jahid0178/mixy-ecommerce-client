@@ -98,13 +98,13 @@ section {
 /* Buttons end here */
 
 .link {
-  color: #333;
-  transition: 0.5s;
+  color: #333 !important;
+  transition: 0.5s !important;
 }
 
 .link:hover {
-  color: #15bd68;
-  transition: 0.5s;
+  color: #15bd68 !important;
+  transition: 0.5s !important;
 }
 
 .link-ul li {
