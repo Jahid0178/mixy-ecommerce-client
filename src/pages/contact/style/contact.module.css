@@ -16,6 +16,11 @@
   padding: 0.6rem 1.2rem;
   cursor: pointer;
   border: none;
+  transition: 0.3s;
+}
+
+.contactForm input[type="submit"]:hover {
+  background-color: #15bd68;
 }
 
 .informationContent > li {

@@ -12,7 +12,7 @@ const BreadCrumb = () => {
     <div
       className={styles.pageTitleWrapper}
       style={
-        pathname.includes("products") ? bg : { backgroundColor: "#f5f9ee" }
+        pathname.includes("products") ? bgImage : { backgroundColor: "#f5f9ee" }
       }
     >
       <div className="container">
@@ -29,7 +29,7 @@ const BreadCrumb = () => {
 
 export default BreadCrumb;
 
-const bg = {
+const bgImage = {
   backgroundImage: `url(${breadCrumbBg.src})`,
   backgroundSize: "cover",
   backgroundPosition: "center",
