@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import logo from "../../../public/logo.jpg";
-import AppStore from "../../../public/assets/store/app_store.png";
-import PlayStore from "../../../public/assets/store/google_play.png";
+import logo from "/public/logo.jpg";
+import AppStore from "/public/assets/store/app_store.png";
+import PlayStore from "/public/assets/store/google_play.png";
 import { Col, Row } from "antd";
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";

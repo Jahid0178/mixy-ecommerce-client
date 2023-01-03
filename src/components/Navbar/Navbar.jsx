@@ -163,7 +163,7 @@ const Navbar = () => {
           </Row>
         </div>
         <Drawer
-          title="Basic Drawer"
+          title="Cart"
           placement="right"
           onClose={closeDrawer}
           open={open}
