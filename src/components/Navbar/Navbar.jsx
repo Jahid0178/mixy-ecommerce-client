@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "/public/logo.jpg";
 import Image from "next/image";
-import { Col, Row, Badge, Dropdown } from "antd";
+import { Col, Row, Badge, Dropdown, Drawer } from "antd";
 import { RxPerson } from "react-icons/rx";
 import { IoRepeat } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
@@ -32,6 +32,15 @@ const items = [
 ];
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const closeDrawer = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <nav>
@@ -99,7 +108,7 @@ const Navbar = () => {
                 </li>
                 <li className="link-list">
                   <Badge count={1} offset={[-5, 10]}>
-                    <a href="#" title="Cart">
+                    <a href="#" title="Cart" onClick={showDrawer}>
                       <BsMinecartLoaded size={20} />
                     </a>
                   </Badge>
@@ -153,6 +162,16 @@ const Navbar = () => {
             </Col>
           </Row>
         </div>
+        <Drawer
+          title="Basic Drawer"
+          placement="right"
+          onClose={closeDrawer}
+          open={open}
+        >
+          <p>Product One</p>
+          <p>Product Two</p>
+          <p>Product Three</p>
+        </Drawer>
       </nav>
     </>
   );
