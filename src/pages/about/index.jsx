@@ -96,6 +96,64 @@ const About = () => {
                 </Col>
               </Row>
             </section>
+
+            <section>
+              <Title level={3}>Our Teams</Title>
+              <Row gutter={[20, 20]}>
+                <Col sm={24} md={12} lg={6}>
+                  <Card
+                    bordered={false}
+                    cover={
+                      <img
+                        src="https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+                        alt="Tony Williams"
+                      />
+                    }
+                  >
+                    <Meta title="Tony Williams" description="FOUNDER / CEO" />
+                  </Card>
+                </Col>
+                <Col sm={24} md={12} lg={6}>
+                  <Card
+                    bordered={false}
+                    cover={
+                      <img
+                        src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                        alt="George S."
+                      />
+                    }
+                  >
+                    <Meta title="George S." description="FOUNDER" />
+                  </Card>
+                </Col>
+                <Col sm={24} md={12} lg={6}>
+                  <Card
+                    bordered={false}
+                    cover={
+                      <img
+                        src="https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                        alt="Marjorie Barney"
+                      />
+                    }
+                  >
+                    <Meta title="Marjorie Barney" description="DESIGNER" />
+                  </Card>
+                </Col>
+                <Col sm={24} md={12} lg={6}>
+                  <Card
+                    bordered={false}
+                    cover={
+                      <img
+                        src="https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+                        alt="Jack Jelian"
+                      />
+                    }
+                  >
+                    <Meta title="Jack Jelian" description="SALES MANAGER" />
+                  </Card>
+                </Col>
+              </Row>
+            </section>
             <section>Testimonials Coming Soon</section>
           </div>
         </section>
