@@ -23,7 +23,7 @@ const Contact = () => {
 
         <section>
           <div className="container">
-            <h1>Contact Us Page</h1>
+            <h2>Map coming soon</h2>
           </div>
         </section>
 

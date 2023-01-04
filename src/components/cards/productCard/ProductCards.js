@@ -1,4 +1,4 @@
-import { Card, Rate, Tag } from "antd";
+import { Card, Rate, Tag, Typography } from "antd";
 import {
   EyeOutlined,
   HeartOutlined,
@@ -7,9 +7,18 @@ import {
 import styles from "./productCard.module.css";
 
 const { Meta } = Card;
+const { Text } = Typography;
 
 const ProductCards = ({ product }) => {
-  const { title, price, description, thumbnail, category, rating } = product;
+  const {
+    title,
+    price,
+    description,
+    thumbnail,
+    category,
+    rating,
+    discountPercentage,
+  } = product;
   return (
     <>
       <Card
@@ -41,7 +50,12 @@ const ProductCards = ({ product }) => {
       >
         <Rate disabled allowHalf value={rating} style={{ fontSize: "16px" }} />
         <Meta title={title} description={description.slice(0, 50) + "..."} />
-        <p className={styles.price}>${price}</p>
+        <div>
+          <span className={styles.price}>${price}</span>
+          <Text delete className={styles.discountPrice}>
+            {discountPercentage}
+          </Text>
+        </div>
         <Tag color="#f50">Category: {category ? category : null}</Tag>
       </Card>
     </>

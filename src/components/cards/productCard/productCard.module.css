@@ -5,3 +5,11 @@
   font-family: var(--font-secondary);
   margin-top: 0.5rem;
 }
+
+.discountPrice {
+  color: #999;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--font-secondary);
+  margin-left: 0.5rem;
+}

@@ -27,6 +27,8 @@ const Home = () => {
       .then((data) => setNewArrivals(data.products));
   }, []);
 
+  console.log(products);
+
   return (
     <>
       <Head>
