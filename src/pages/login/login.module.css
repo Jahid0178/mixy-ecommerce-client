@@ -1,0 +1,39 @@
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup label::after {
+  content: "*";
+  margin-left: 0.3rem;
+  color: #ff0000;
+  font-size: 1rem;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 0.6rem;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+}
+
+.buttonPrimary {
+  border: none;
+  padding: 0.7rem 1rem;
+  background-color: #15bd68;
+  color: #fff;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.5s;
+  font-size: 1rem;
+}
+
+.buttonPrimary:hover {
+  background-color: #0f9d58;
+}
