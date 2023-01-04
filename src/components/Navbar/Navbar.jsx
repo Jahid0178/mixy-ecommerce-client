@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import logo from "/public/logo.jpg";
 import Image from "next/image";
+import Link from "next/link";
 import { Col, Row, Badge, Dropdown, Drawer } from "antd";
 import { RxPerson } from "react-icons/rx";
 import { IoRepeat } from "react-icons/io5";
@@ -11,7 +12,6 @@ import {
   BsMinecartLoaded,
   BsSearch,
 } from "react-icons/bs";
-import Link from "next/link";
 
 const items = [
   {
@@ -88,29 +88,29 @@ const Navbar = () => {
             <Col span={9} xs={24} sm={24} md={8}>
               <ul className="link-ul">
                 <li className="link-list">
-                  <a href="/login" title="Login to customer account">
+                  <Link href="/login" title="Login to customer account">
                     <RxPerson size={20} />
-                  </a>
+                  </Link>
                 </li>
                 <li className="link-list">
                   <Badge count={1} offset={[-5, 10]}>
-                    <a href="#" title="Compare">
+                    <Link href="#" title="Compare">
                       <IoRepeat size={20} />
-                    </a>
+                    </Link>
                   </Badge>
                 </li>
                 <li className="link-list">
                   <Badge count={1} offset={[-5, 10]}>
-                    <a href="#" title="Wishlist">
+                    <Link href="#" title="Wishlist">
                       <BsHeart size={20} />
-                    </a>
+                    </Link>
                   </Badge>
                 </li>
                 <li className="link-list">
                   <Badge count={1} offset={[-5, 10]}>
-                    <a href="#" title="Cart" onClick={showDrawer}>
+                    <Link href="#" title="Cart" onClick={showDrawer}>
                       <BsMinecartLoaded size={20} />
-                    </a>
+                    </Link>
                   </Badge>
                 </li>
               </ul>

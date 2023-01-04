@@ -3,12 +3,13 @@ import Image from "next/image";
 import logo from "/public/logo.jpg";
 import AppStore from "/public/assets/store/app_store.png";
 import PlayStore from "/public/assets/store/google_play.png";
+import Link from "next/link";
 import { Col, Row } from "antd";
 import { FaFacebook, FaYoutube } from "react-icons/fa";
 import { BsTwitter } from "react-icons/bs";
 import { AiFillInstagram } from "react-icons/ai";
 import { Typography } from "antd";
-const { Title, Paragraph, Link } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Footer = () => {
   return (
