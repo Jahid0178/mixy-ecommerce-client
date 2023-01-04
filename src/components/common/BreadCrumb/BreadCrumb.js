@@ -8,6 +8,7 @@ import breadCrumbBg from "/public/assets/bread-crumb/bg_breadcrumb.jpg";
 const BreadCrumb = () => {
   const router = useRouter();
   const { pathname } = router;
+  const itemName = pathname.substring(1).trim();
   return (
     <div
       className={styles.pageTitleWrapper}
@@ -20,7 +21,7 @@ const BreadCrumb = () => {
           <Breadcrumb.Item>
             <Link href="/">Home</Link>
           </Breadcrumb.Item>
-          <Breadcrumb.Item>{pathname}</Breadcrumb.Item>
+          <Breadcrumb.Item>{itemName}</Breadcrumb.Item>
         </Breadcrumb>
       </div>
     </div>
