@@ -88,7 +88,7 @@ const Navbar = () => {
             <Col span={9} xs={24} sm={24} md={8}>
               <ul className="link-ul">
                 <li className="link-list">
-                  <a href="#" title="Login to customer account">
+                  <a href="/login" title="Login to customer account">
                     <RxPerson size={20} />
                   </a>
                 </li>
