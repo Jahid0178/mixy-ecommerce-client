@@ -3,16 +3,15 @@ import Head from "next/head";
 import ProductCards from "../components/cards/productCard/ProductCards";
 import Newsletter from "../components/common/Newsletter/Newsletter";
 import HeroSlider from "../components/sliders/HeroSlider/HeroSlider";
-import Image from "next/image";
 import BannerOne from "/public/assets/banners/home_banner1.jpg";
 import BannerTwo from "/public/assets/banners/home_banner2.jpg";
 import BannerThree from "/public/assets/banners/home_banner3.jpg";
 import BannerFour from "/public/assets/banners/home_banner4.jpg";
-import styles from "../styles/Home.module.css";
 import { Col, Row } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import SmallBanner from "../components/common/SmallBanner/SmallBanner";
+import CategoriesCard from "../components/cards/CategoriesCard/CategoriesCard";
 
 const bannerContentOne = [
   {
@@ -52,7 +51,9 @@ const Home = () => {
     fetch("https://dummyjson.com/products")
       .then((res) => res.json())
       .then((data) => setProducts(data.products));
+  }, []);
 
+  useEffect(() => {
     fetch("https://dummyjson.com/products/category/groceries")
       .then((res) => res.json())
       .then((data) => setNewArrivals(data.products));
@@ -177,6 +178,7 @@ const Home = () => {
               <h2>Popular Categories</h2>
               <p>Some of our popular categories include products</p>
             </div>
+            <CategoriesCard />
           </div>
         </section>
 
