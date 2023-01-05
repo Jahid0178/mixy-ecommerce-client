@@ -1,10 +1,19 @@
-import { Col, Row, Typography, Slider, Checkbox, Tag } from "antd";
+import React from "react";
+import { Col, Row, Typography, Slider, Checkbox, Tag, Pagination } from "antd";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
+import ProductCards from "../../components/cards/productCard/ProductCards";
 
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Products = () => {
+  const [products, setProducts] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch("https://dummyjson.com/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data.products));
+  }, []);
   return (
     <>
       <Head>
@@ -60,7 +69,21 @@ const Products = () => {
                 </div>
               </Col>
               <Col sm={24} md={12} lg={18}>
-                Products
+                <Paragraph>There is {products.length} products.</Paragraph>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(3, 1fr)",
+                    gridGap: "1rem",
+                  }}
+                >
+                  {products.map((product) => (
+                    <ProductCards key={product.id} product={product} />
+                  ))}
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <Pagination defaultCurrent={1} total={50} />
+                </div>
               </Col>
             </Row>
           </div>
