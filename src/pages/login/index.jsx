@@ -53,7 +53,11 @@ const Login = () => {
                       {...register("password", { required: true })}
                     />
                   </div>
-                  <input className={styles.buttonPrimary} type="submit" />
+                  <input
+                    className={styles.buttonPrimary}
+                    type="submit"
+                    value="Login"
+                  />
                 </form>
               </Col>
               <Col sm={24} md={12} lg={12}>
