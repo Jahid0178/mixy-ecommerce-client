@@ -12,6 +12,37 @@ import styles from "../styles/Home.module.css";
 import { Col, Row } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+import SmallBanner from "../components/common/SmallBanner/SmallBanner";
+
+const bannerContentOne = [
+  {
+    name: "Chocolate Cookies",
+    title: "Best sweet in town",
+    discount: "From 20% Off",
+    image: BannerOne,
+  },
+  {
+    name: "Capture the",
+    title: "Delicious Moments",
+    discount: "Up To 30% Off",
+    image: BannerTwo,
+  },
+];
+
+const bannerContentTwo = [
+  {
+    name: "100% Natural Organic",
+    title: "Strawberry Velvet Cake",
+    image: BannerThree,
+    price: "30.66",
+  },
+  {
+    name: "Organic",
+    title: "Nuts",
+    image: BannerFour,
+    price: "26.88",
+  },
+];
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -40,24 +71,7 @@ const Home = () => {
         </header>
         <section>
           <div className="container">
-            <div className={styles.topBannerContainer}>
-              <div className={styles.topBannerContent}>
-                <Image src={BannerOne} alt="Banner One" />
-                <div className={styles.topBannerText}>
-                  <p>Chocolate Cookies</p>
-                  <h2>Best Sweets In Town</h2>
-                  <h3>From 20% Off</h3>
-                </div>
-              </div>
-              <div className={styles.topBannerContent}>
-                <Image src={BannerTwo} alt="Banner Two" />
-                <div className={styles.topBannerText}>
-                  <p>Capture The</p>
-                  <h2>Delicious Moments</h2>
-                  <h3>Up To 30% Off</h3>
-                </div>
-              </div>
-            </div>
+            <SmallBanner contents={bannerContentOne} />
           </div>
         </section>
 
@@ -153,24 +167,7 @@ const Home = () => {
 
         <section>
           <div className="container">
-            <Row gutter={[20, 20]}>
-              <Col sm={24} md={12} lg={16} className={styles.homeBanner}>
-                <Image src={BannerThree} alt="Bottom Banner" />
-                <div className={styles.homeBannerContent}>
-                  <p>100% Natural Organic</p>
-                  <h2>Strawberry Velvet Cake</h2>
-                  <h3>$30.66</h3>
-                </div>
-              </Col>
-              <Col sm={24} md={12} lg={8} className={styles.homeBanner}>
-                <Image src={BannerFour} alt="Bottom Banner" />
-                <div className={styles.homeBannerContent}>
-                  <p>Organic</p>
-                  <h2>Nuts</h2>
-                  <h3>$26.88</h3>
-                </div>
-              </Col>
-            </Row>
+            <SmallBanner contents={bannerContentTwo} />
           </div>
         </section>
 
