@@ -21,14 +21,6 @@ const SmallBanner = ({ contents }) => {
             </div>
           </div>
         ))}
-        {/* <div className={styles.topBannerContent}>
-          <Image src="" alt="Banner One" />
-          <div className={styles.topBannerText}>
-            <p>Chocolate Cookies</p>
-            <h2>Best Sweets In Town</h2>
-            <h3>From 20% Off</h3>
-          </div>
-        </div> */}
       </div>
     </div>
   );

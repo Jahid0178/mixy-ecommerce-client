@@ -5,12 +5,16 @@ import {
   ShoppingCartOutlined,
 } from "@ant-design/icons";
 import styles from "./productCard.module.css";
+import { useRouter } from "next/router";
 
 const { Meta } = Card;
 const { Text } = Typography;
 
 const ProductCards = ({ product }) => {
+  const router = useRouter();
+  const { push } = router;
   const {
+    id,
     title,
     price,
     description,
@@ -39,7 +43,7 @@ const ProductCards = ({ product }) => {
           <EyeOutlined
             key="Quick View"
             title="Quick View"
-            onClick={() => console.log("You clicked quick view")}
+            onClick={() => push(`/products/${id}`)}
           />,
           <HeartOutlined
             key="Wishlist"

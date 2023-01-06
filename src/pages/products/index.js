@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row, Typography, Slider, Checkbox, Tag, Pagination } from "antd";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
-import ProductCards from "../../components/cards/productCard/ProductCards";
+import ProductCards from "../../components/cards/ProductCard/ProductCards";
 
 const { Title, Paragraph } = Typography;
 

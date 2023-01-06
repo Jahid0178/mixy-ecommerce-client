@@ -1,0 +1,8 @@
+.price {
+  color: #da2e1f;
+  padding-top: 0.5rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--font-secondary);
+}
