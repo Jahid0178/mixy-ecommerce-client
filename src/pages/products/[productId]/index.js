@@ -18,7 +18,6 @@ const ProductDetails = () => {
 
   const { title, description, price, thumbnail, rating, stock, images } =
     product;
-  console.log(product);
 
   return (
     <div>
@@ -36,11 +35,13 @@ const ProductDetails = () => {
                   marginTop: "1rem",
                 }}
               >
-                {images?.map((image, ind) => {
-                  return (
-                    <Image style={{ height: "100%" }} key={ind} src={image} />
-                  );
-                })}
+                <Image.PreviewGroup>
+                  {images?.map((image, ind) => {
+                    return (
+                      <Image key={ind} style={{ height: "100%" }} src={image} />
+                    );
+                  })}
+                </Image.PreviewGroup>
               </div>
             </Col>
             <Col sm={24} md={12} lg={12}>
