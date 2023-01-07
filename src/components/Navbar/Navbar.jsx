@@ -31,6 +31,25 @@ const items = [
   },
 ];
 
+const routes = [
+  {
+    path: "/",
+    title: "Home",
+  },
+  {
+    path: "/about",
+    title: "About Us",
+  },
+  {
+    path: "/products",
+    title: "Products",
+  },
+  {
+    path: "/contact",
+    title: "Contact Us",
+  },
+];
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const showDrawer = () => {
@@ -138,26 +157,13 @@ const Navbar = () => {
             </Col>
             <Col>
               <ul className="link-ul">
-                <li>
-                  <Link href="/" className="nav-link">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="nav-link">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/products" className="nav-link">
-                    Products
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="nav-link">
-                    Contact Us
-                  </Link>
-                </li>
+                {routes.map((route, ind) => (
+                  <li key={ind}>
+                    <Link href={route.path} className="nav-link">
+                      {route.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </Col>
           </Row>

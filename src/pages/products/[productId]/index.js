@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Col, Image, Rate, Row, Typography } from "antd";
 import paymentMethodImage from "/public/assets/payment.png";
 import styles from "./productDetail.module.css";
+import BreadCrumb from "../../../components/common/BreadCrumb/BreadCrumb";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -21,9 +22,10 @@ const ProductDetails = () => {
 
   return (
     <div>
+      <BreadCrumb />
       {product ? (
         <div className="container">
-          <Row gutter={[20, 20]}>
+          <Row gutter={[20, 20]} style={{ padding: "5rem 0" }}>
             <Col sm={24} md={12} lg={12} style={{ textAlign: "center" }}>
               <Image src={thumbnail} alt={title} />
               <div
