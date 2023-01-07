@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row, Typography, Slider, Checkbox, Tag, Pagination } from "antd";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import ProductCards from "../../components/cards/ProductCard/ProductCards";
 import styles from "./style.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { priceFilter } from "../../redux/actions/filterAction";
+import loadProductData from "../../redux/thunk/products/fetchProducts";
 
 const { Title, Paragraph } = Typography;
 
 const Products = () => {
-  const [products, setProducts] = React.useState([]);
+  const dispatch = useDispatch();
+  const { price } = useSelector((state) => state.filter);
+  const { products } = useSelector((state) => state.products);
 
-  React.useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, []);
+  useEffect(() => {
+    dispatch(loadProductData());
+  }, [dispatch]);
+
+  const filterProduct = products.filter((product) => product.price <= price);
+  console.log(filterProduct);
+
   return (
     <>
       <Head>
@@ -51,7 +58,12 @@ const Products = () => {
                 </div>
                 <div>
                   <Title level={3}>Price</Title>
-                  <Slider min={7} max={500} />
+                  <Slider
+                    min={7}
+                    max={500}
+                    defaultValue={price}
+                    onChange={(e) => dispatch(priceFilter(e))}
+                  />
                 </div>
                 <div>
                   <Title level={3}>Tags</Title>

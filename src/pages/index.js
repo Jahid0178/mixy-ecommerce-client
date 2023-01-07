@@ -13,6 +13,9 @@ import { Navigation } from "swiper";
 import SmallBanner from "../components/common/SmallBanner/SmallBanner";
 import CategoriesCard from "../components/cards/CategoriesCard/CategoriesCard";
 import SectionTitle from "../components/common/SectionTitle/SectionTitle";
+import { useDispatch, useSelector } from "react-redux";
+import { loadProducts } from "../redux/actions/productAction";
+import loadProductData from "../redux/thunk/products/fetchProducts";
 
 const bannerContentOne = [
   {
@@ -45,14 +48,14 @@ const bannerContentTwo = [
 ];
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
   const [newArrivals, setNewArrivals] = useState([]);
 
+  const { products } = useSelector((state) => state.products);
+
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, []);
+    dispatch(loadProductData());
+  }, [dispatch]);
 
   useEffect(() => {
     fetch("https://dummyjson.com/products/category/groceries")
