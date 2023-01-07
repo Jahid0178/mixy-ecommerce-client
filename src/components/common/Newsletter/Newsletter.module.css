@@ -62,7 +62,7 @@
   font-size: 1rem;
 }
 
-.inputWrapper input[type="submit"] {
+.inputWrapper button {
   position: absolute;
   top: 5px;
   right: 5px;

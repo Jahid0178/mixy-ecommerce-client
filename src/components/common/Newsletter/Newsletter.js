@@ -4,6 +4,7 @@ import { MdOutlineLocalShipping } from "react-icons/md";
 import { BiDollarCircle } from "react-icons/bi";
 import { SlSupport } from "react-icons/sl";
 import styles from "./Newsletter.module.css";
+import Button from "../Buttons/Button";
 
 const Newsletter = () => {
   return (
@@ -31,7 +32,7 @@ const Newsletter = () => {
                     id=""
                     placeholder="Enter you email"
                   />
-                  <input type="submit" value="Subscribe" />
+                  <Button type={"submit"} value={"Subscribe"} />
                 </div>
               </form>
             </Col>
