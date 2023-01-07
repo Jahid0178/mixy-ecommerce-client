@@ -3,6 +3,7 @@ import { Col, Row, Typography, Slider, Checkbox, Tag, Pagination } from "antd";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import ProductCards from "../../components/cards/ProductCard/ProductCards";
+import styles from "./style.module.css";
 
 const { Title, Paragraph } = Typography;
 
@@ -70,13 +71,7 @@ const Products = () => {
               </Col>
               <Col sm={24} md={12} lg={18}>
                 <Paragraph>There is {products.length} products.</Paragraph>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(3, 1fr)",
-                    gridGap: "1rem",
-                  }}
-                >
+                <div className={styles.productContainer}>
                   {products.map((product) => (
                     <ProductCards key={product.id} product={product} />
                   ))}

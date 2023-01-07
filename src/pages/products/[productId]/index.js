@@ -1,12 +1,11 @@
 import React from "react";
-import { useRouter } from "next/router";
-import { Col, Image, Rate, Row, Typography } from "antd";
-import paymentMethodImage from "/public/assets/payment.png";
-import styles from "./productDetail.module.css";
-import BreadCrumb from "../../../components/common/BreadCrumb/BreadCrumb";
 import Head from "next/head";
+import styles from "./productDetail.module.css";
+import Button from "../../../components/common/Buttons/Button";
+import { useRouter } from "next/router";
+import { Col, Image, InputNumber, Rate, Row, Typography } from "antd";
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 const ProductDetails = () => {
   const [product, setProduct] = React.useState({});
@@ -21,6 +20,10 @@ const ProductDetails = () => {
   const { title, description, price, thumbnail, rating, stock, images } =
     product;
 
+  const onChange = (value) => {
+    console.log("Product Quantity", value);
+  };
+
   return (
     <div>
       <Head>
@@ -30,7 +33,6 @@ const ProductDetails = () => {
       </Head>
 
       <main>
-        <BreadCrumb />
         <div className="container">
           <Row gutter={[20, 20]} style={{ padding: "5rem 0" }}>
             <Col sm={24} md={12} lg={12} style={{ textAlign: "center" }}>
@@ -57,11 +59,20 @@ const ProductDetails = () => {
               <Title level={2} style={{ marginBottom: 0 }}>
                 {title}
               </Title>
-              <Rate disabled defaultValue={rating} allowHalf />
+              <Rate disabled value={rating} allowHalf />
               <Paragraph className={styles.price}>${price}</Paragraph>
               <Paragraph>{description}</Paragraph>
               <Paragraph>In Stock: {stock}</Paragraph>
-              <img src={paymentMethodImage} alt="Payment Image" />
+              <div style={{ margin: "1rem 0", display: "flex", gap: 16 }}>
+                <InputNumber
+                  min={1}
+                  max={10}
+                  onChange={onChange}
+                  defaultValue={1}
+                />
+                <Button value="Add To Cart" />
+              </div>
+              <img src="/public/assets/payment.png" alt="Payment Image" />
             </Col>
           </Row>
         </div>

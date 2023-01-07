@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Card, Typography } from "antd";
 import thumb1 from "/public/assets/thumb/thumb-1.png";
 import thumb2 from "/public/assets/thumb/thumb-2.png";
@@ -8,7 +9,7 @@ import thumb5 from "/public/assets/thumb/thumb-5.png";
 import thumb6 from "/public/assets/thumb/thumb-6.png";
 import thumb7 from "/public/assets/thumb/thumb-7.png";
 import thumb8 from "/public/assets/thumb/thumb-8.png";
-import Image from "next/image";
+import styles from "./style.module.css";
 
 const { Title, Paragraph } = Typography;
 
@@ -73,7 +74,11 @@ const CategoriesCard = () => {
     <React.Fragment>
       <Card>
         {categories.map((category) => (
-          <Card.Grid style={gridStyle} hoverable={false} key={category.id}>
+          <Card.Grid
+            className={styles.cardContent}
+            hoverable={false}
+            key={category.id}
+          >
             <div
               style={{
                 display: "flex",
