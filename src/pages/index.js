@@ -12,6 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import SmallBanner from "../components/common/SmallBanner/SmallBanner";
 import CategoriesCard from "../components/cards/CategoriesCard/CategoriesCard";
+import SectionTitle from "../components/common/SectionTitle/SectionTitle";
 
 const bannerContentOne = [
   {
@@ -78,10 +79,10 @@ const Home = () => {
 
         <section>
           <div className="container">
-            <div className="pos-title">
-              <h2>Best Sellers</h2>
-              <p>Add bestselling products to weekly line up</p>
-            </div>
+            <SectionTitle
+              title="best sellers"
+              description="Add bestselling products to weekly line up"
+            />
             <Row gutter={[15, 15]} justify="center">
               <Col>
                 <Swiper
@@ -117,22 +118,19 @@ const Home = () => {
 
         <section>
           <div className="container">
-            <div className="pos-title">
-              <h2>Deals Of The Days</h2>
-              <p>
-                Dont miss this opportunity at a special discount just for this
-                week
-              </p>
-            </div>
+            <SectionTitle
+              title="deals of the days"
+              description="Dont miss this opportunity at a special discount just for this week"
+            />
           </div>
         </section>
 
         <section>
           <div className="container">
-            <div className="pos-title">
-              <h2>New Arrivals</h2>
-              <p>Add new products to weekly line up</p>
-            </div>
+            <SectionTitle
+              title="new arrivals"
+              description="Add new products to weekly line up"
+            />
             <Row gutter={[15, 15]} justify="center">
               <Col>
                 <Swiper
@@ -174,10 +172,10 @@ const Home = () => {
 
         <section>
           <div className="container">
-            <div className="pos-title">
-              <h2>Popular Categories</h2>
-              <p>Some of our popular categories include products</p>
-            </div>
+            <SectionTitle
+              title="popular categories"
+              description="Some of our popular categories include grocery"
+            />
             <CategoriesCard />
           </div>
         </section>

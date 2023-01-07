@@ -14,7 +14,6 @@ const { Title, Paragraph } = Typography;
 
 const gridStyle = {
   width: "25%",
-  textAlign: "center",
   cursor: "pointer",
 };
 
