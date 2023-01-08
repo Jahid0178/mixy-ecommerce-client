@@ -7,8 +7,7 @@
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
-  max-width: 30%;
-  width: 100%;
+  width: 30%;
 }
 
 .sliderContent > * {
@@ -28,4 +27,28 @@
   color: #da2e1f;
   font-size: 2rem;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 688px) {
+  .sliderImage {
+    object-fit: cover;
+    object-position: -55rem;
+  }
+
+  .sliderContent {
+    width: 100%;
+    left: 3%;
+  }
+
+  .sliderContent > h1 {
+    font-size: 1.5rem;
+  }
+
+  .caption {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
 }

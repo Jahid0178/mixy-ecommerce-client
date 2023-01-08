@@ -9,6 +9,7 @@ import styles from "./styles.module.css";
 import "swiper/css/navigation";
 import Button from "../../common/Buttons/Button";
 import Link from "next/link";
+import "animate.css/animate.min.css";
 
 const sliderContents = [
   {
@@ -47,7 +48,12 @@ const HeroSlider = () => {
           const { caption, title, price, imageSrc, alt, starting, btn } = slide;
           return (
             <SwiperSlide key={ind}>
-              <Image src={imageSrc} style={{ width: "100%" }} alt={alt} />
+              <Image
+                className={styles.sliderImage}
+                src={imageSrc}
+                style={{ width: "100%" }}
+                alt={alt}
+              />
               <div className={styles.sliderContent}>
                 <p className={styles.caption}>{caption}</p>
                 <h1>{title}</h1>
