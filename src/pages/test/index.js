@@ -8,11 +8,14 @@ import { GoogleOutlined } from "@ant-design/icons";
 const { Title } = Typography;
 
 const Test = () => {
+  const clickHandler = () => {
+    console.log("clicked");
+  };
   return (
     <div className="container">
       <div>
         <Title level={2}>Buttons</Title>
-        <Button value={"Save Here"} />
+        <Button value={"Save Here"} onClick={() => clickHandler()} />
       </div>
       <div>
         <Title level={2}>Section Header</Title>
@@ -25,6 +28,7 @@ const Test = () => {
         <RoundButton
           value="Google Login"
           icon={<GoogleOutlined style={{ color: "#EA4335" }} />}
+          onClick={() => console.log("clicked rounded button")}
         />
       </div>
     </div>
