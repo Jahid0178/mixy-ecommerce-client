@@ -1,0 +1,22 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  background: #15bd68;
+  border: 0;
+  color: #fff;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background: #0aaa5a;
+}
+
+.btn:disabled {
+  background: #b1b1b1;
+  cursor: not-allowed;
+}

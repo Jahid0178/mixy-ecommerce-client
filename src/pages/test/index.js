@@ -27,7 +27,7 @@ const Test = () => {
       <div>
         <RoundButton
           value="Google Login"
-          icon={<GoogleOutlined style={{ color: "#EA4335" }} />}
+          icon={<GoogleOutlined style={{ color: "#fff" }} />}
           onClick={() => console.log("clicked rounded button")}
         />
       </div>
