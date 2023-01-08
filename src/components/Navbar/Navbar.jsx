@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "/public/logo.jpg";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,6 +12,7 @@ import {
   BsMinecartLoaded,
   BsSearch,
 } from "react-icons/bs";
+import styles from "./style.module.css";
 
 const items = [
   {
@@ -52,6 +53,8 @@ const routes = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const navRef = useRef(null);
   const showDrawer = () => {
     setOpen(true);
   };
@@ -59,6 +62,17 @@ const Navbar = () => {
   const closeDrawer = () => {
     setOpen(false);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const navHeight = navRef.current.offsetHeight;
+      setIsSticky(window.scrollY > navHeight);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
@@ -137,7 +151,12 @@ const Navbar = () => {
           </Row>
         </div>
 
-        <div className="navbar-container">
+        <div
+          className={`${styles.navbarContainer} ${
+            isSticky ? styles.stickyNav : ""
+          }`}
+          ref={navRef}
+        >
           <Row className="container" gutter={[25, 25]} align="middle">
             <Col>
               <Dropdown

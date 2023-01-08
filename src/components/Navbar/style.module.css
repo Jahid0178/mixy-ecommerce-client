@@ -1,0 +1,11 @@
+.navbarContainer {
+  background-color: #184d47;
+}
+
+.stickyNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
