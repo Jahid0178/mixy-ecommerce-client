@@ -8,4 +8,10 @@
   left: 0;
   right: 0;
   z-index: 99;
+  background-color: rgba(24, 77, 71, 0.8);
+  transition: 0.3s;
+}
+
+.stickyNav:hover {
+  background-color: #184d47;
 }
