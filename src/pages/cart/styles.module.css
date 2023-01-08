@@ -1,0 +1,15 @@
+.productTable,
+.productTable th,
+.productTable td {
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+
+.productTable {
+  width: 100%;
+  border-radius: 0.3rem;
+}
+
+.productTable td {
+  text-align: center;
+}
