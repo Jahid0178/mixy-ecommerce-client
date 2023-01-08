@@ -1,0 +1,31 @@
+.sliderContent a {
+  text-decoration: none;
+}
+
+.sliderContent {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  max-width: 30%;
+  width: 100%;
+}
+
+.sliderContent > * {
+  margin: 1rem 0;
+}
+
+.sliderContent > h1 {
+  font-size: 2.8rem;
+}
+
+.caption {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.price {
+  color: #da2e1f;
+  font-size: 2rem;
+  font-weight: bold;
+}

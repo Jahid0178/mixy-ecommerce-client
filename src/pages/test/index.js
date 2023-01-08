@@ -3,7 +3,7 @@ import { Typography } from "antd";
 import Button from "../../components/common/Buttons/Button";
 import SectionTitle from "../../components/common/SectionTitle/SectionTitle";
 import RoundButton from "../../components/common/Buttons/RoundButton";
-import { GoogleOutlined } from "@ant-design/icons";
+import { GoogleOutlined, ArrowRightOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 
@@ -15,7 +15,11 @@ const Test = () => {
     <div className="container">
       <div>
         <Title level={2}>Buttons</Title>
-        <Button value={"Save Here"} onClick={() => clickHandler()} />
+        <Button
+          value={"Save Here"}
+          icon={<ArrowRightOutlined />}
+          onClick={() => clickHandler()}
+        />
       </div>
       <div>
         <Title level={2}>Section Header</Title>
