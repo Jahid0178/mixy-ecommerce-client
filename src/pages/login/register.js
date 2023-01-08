@@ -9,7 +9,7 @@ import secureLogin from "/public/svg/secure_login.svg";
 import styles from "./login.module.css";
 import RoundButton from "../../components/common/Buttons/RoundButton";
 
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Register = () => {
   const { register, handleSubmit } = useForm();
@@ -100,6 +100,9 @@ const Register = () => {
                     value="Register"
                   />
                 </form>
+                <p style={{ marginTop: "1rem", textAlign: "center" }}>
+                  ---------------- Or ----------------
+                </p>
                 <div className={styles.btnGroup}>
                   <RoundButton
                     value="Login With Google"

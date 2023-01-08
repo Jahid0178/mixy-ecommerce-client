@@ -61,6 +61,9 @@ const Login = () => {
                     value="Login"
                   />
                 </form>
+                <p style={{ marginTop: "1rem", textAlign: "center" }}>
+                  ---------------- Or ----------------
+                </p>
                 <div className={styles.btnGroup}>
                   <RoundButton
                     value="Login With Google"
