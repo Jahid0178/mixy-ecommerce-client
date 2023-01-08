@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import styles from "./login.module.css";
 import Link from "next/link";
+import RoundButton from "../../components/common/Buttons/RoundButton";
+import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
 
 const { Title, Paragraph } = Typography;
 
@@ -59,6 +61,34 @@ const Login = () => {
                     value="Login"
                   />
                 </form>
+                <div className={styles.btnGroup}>
+                  <RoundButton
+                    value="Login With Google"
+                    style={{
+                      padding: "0.8rem 1rem",
+                      background: "#15bd68",
+                      border: 0,
+                      color: "#fff",
+                      borderRadius: "0.3rem",
+                      cursor: "pointer",
+                    }}
+                    icon={<GoogleOutlined style={{ color: "#fff" }} />}
+                    onClick={() => console.log("clicked on google button")}
+                  />
+                  <RoundButton
+                    value="Login With Github"
+                    style={{
+                      padding: "0.8rem 1rem",
+                      background: "#15bd68",
+                      border: 0,
+                      color: "#fff",
+                      borderRadius: "0.3rem",
+                      cursor: "pointer",
+                    }}
+                    icon={<GithubOutlined style={{ color: "#fff" }} />}
+                    onClick={() => console.log("clicked on github button")}
+                  />
+                </div>
               </Col>
               <Col sm={24} md={12} lg={12}>
                 <Title level={2}>New Customers</Title>

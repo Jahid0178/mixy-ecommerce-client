@@ -37,3 +37,9 @@
 .buttonPrimary:hover {
   background-color: #0f9d58;
 }
+
+.btnGroup {
+  display: flex;
+  margin: 1rem 0;
+  gap: 1rem;
+}

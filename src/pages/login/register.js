@@ -3,9 +3,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { Col, Row, Typography } from "antd";
 import { useForm } from "react-hook-form";
+import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import secureLogin from "/public/svg/secure_login.svg";
 import styles from "./login.module.css";
+import RoundButton from "../../components/common/Buttons/RoundButton";
 
 const { Title } = Typography;
 
@@ -98,6 +100,32 @@ const Register = () => {
                     value="Register"
                   />
                 </form>
+                <div className={styles.btnGroup}>
+                  <RoundButton
+                    value="Login With Google"
+                    style={{
+                      padding: "0.8rem 1rem",
+                      background: "#15bd68",
+                      border: 0,
+                      color: "#fff",
+                      borderRadius: "0.3rem",
+                      cursor: "pointer",
+                    }}
+                    icon={<GoogleOutlined style={{ color: "#fff" }} />}
+                  />
+                  <RoundButton
+                    value="Login With Github"
+                    style={{
+                      padding: "0.8rem 1rem",
+                      background: "#15bd68",
+                      border: 0,
+                      color: "#fff",
+                      borderRadius: "0.3rem",
+                      cursor: "pointer",
+                    }}
+                    icon={<GithubOutlined style={{ color: "#fff" }} />}
+                  />
+                </div>
               </Col>
             </Row>
           </div>
