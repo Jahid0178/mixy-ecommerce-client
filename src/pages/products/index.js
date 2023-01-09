@@ -9,6 +9,7 @@ import {
   Pagination,
   Dropdown,
   Space,
+  Spin,
 } from "antd";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
@@ -17,6 +18,8 @@ import styles from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { priceFilter } from "../../redux/actions/filterAction";
 import loadProductData from "../../redux/thunk/products/fetchProducts";
+import { loadingStart } from "../../redux/actions/productAction";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const { Title, Paragraph } = Typography;
 
@@ -47,12 +50,17 @@ const items = [
   },
 ];
 
+const loadingIcon = (
+  <LoadingOutlined style={{ fontSize: 30, color: "#15bd68" }} />
+);
+
 const Products = () => {
   const dispatch = useDispatch();
   const { price } = useSelector((state) => state.filter);
-  const { products } = useSelector((state) => state.products);
+  const { products, loading } = useSelector((state) => state.products);
 
   useEffect(() => {
+    dispatch(loadingStart());
     dispatch(loadProductData());
   }, [dispatch]);
 
@@ -120,6 +128,11 @@ const Products = () => {
                   <div>
                     <Paragraph>There is {products?.length} products.</Paragraph>
                   </div>
+                  {!products?.length && loading ? (
+                    <Spin indicator={loadingIcon} />
+                  ) : (
+                    ""
+                  )}
                   <div>
                     <Dropdown
                       menu={{
