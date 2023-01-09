@@ -1,5 +1,15 @@
 import React, { useEffect } from "react";
-import { Col, Row, Typography, Slider, Checkbox, Tag, Pagination } from "antd";
+import {
+  Col,
+  Row,
+  Typography,
+  Slider,
+  Checkbox,
+  Tag,
+  Pagination,
+  Dropdown,
+  Space,
+} from "antd";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import ProductCards from "../../components/cards/ProductCard/ProductCards";
@@ -9,6 +19,33 @@ import { priceFilter } from "../../redux/actions/filterAction";
 import loadProductData from "../../redux/thunk/products/fetchProducts";
 
 const { Title, Paragraph } = Typography;
+
+const items = [
+  {
+    key: "1",
+    label: <a href="#">Best Seller</a>,
+  },
+  {
+    key: "2",
+    label: <a href="#">Relevance</a>,
+  },
+  {
+    key: "3",
+    label: <a href="#">Name, A to Z</a>,
+  },
+  {
+    key: "4",
+    label: <a href="#">Name, Z to A</a>,
+  },
+  {
+    key: "5",
+    label: <a href="#">Price, low to high</a>,
+  },
+  {
+    key: "6",
+    label: <a href="#">Price, high to low</a>,
+  },
+];
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -82,7 +119,23 @@ const Products = () => {
                 </div>
               </Col>
               <Col sm={24} md={12} lg={18}>
-                <Paragraph>There is {products.length} products.</Paragraph>
+                <div className={styles.sortContainer}>
+                  <div>
+                    <Paragraph>There is {products.length} products.</Paragraph>
+                  </div>
+                  <div>
+                    <Dropdown
+                      menu={{
+                        items,
+                      }}
+                      trigger={["click"]}
+                    >
+                      <a className="link" onClick={(e) => e.preventDefault()}>
+                        Sort By
+                      </a>
+                    </Dropdown>
+                  </div>
+                </div>
                 <div className={styles.productContainer}>
                   {products.map((product) => (
                     <ProductCards key={product.id} product={product} />
