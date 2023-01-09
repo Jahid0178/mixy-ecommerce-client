@@ -7,15 +7,16 @@ import BannerOne from "/public/assets/banners/home_banner1.jpg";
 import BannerTwo from "/public/assets/banners/home_banner2.jpg";
 import BannerThree from "/public/assets/banners/home_banner3.jpg";
 import BannerFour from "/public/assets/banners/home_banner4.jpg";
-import { Col, Row } from "antd";
+import { Col, Row, Spin } from "antd";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import SmallBanner from "../components/common/SmallBanner/SmallBanner";
 import CategoriesCard from "../components/cards/CategoriesCard/CategoriesCard";
 import SectionTitle from "../components/common/SectionTitle/SectionTitle";
 import { useDispatch, useSelector } from "react-redux";
-import { loadProducts } from "../redux/actions/productAction";
+import { loadingStart } from "../redux/actions/productAction";
 import loadProductData from "../redux/thunk/products/fetchProducts";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const bannerContentOne = [
   {
@@ -47,13 +48,16 @@ const bannerContentTwo = [
   },
 ];
 
+const loadingIcon = <LoadingOutlined style={{ fontSize: 24 }} />;
+
 const Home = () => {
   const dispatch = useDispatch();
   const [newArrivals, setNewArrivals] = useState([]);
 
-  const { products } = useSelector((state) => state.products);
+  const { products, loading } = useSelector((state) => state.products);
 
   useEffect(() => {
+    dispatch(loadingStart());
     dispatch(loadProductData());
   }, [dispatch]);
 
@@ -86,6 +90,7 @@ const Home = () => {
               title="best sellers"
               description="Add bestselling products to weekly line up"
             />
+
             <Row gutter={[15, 15]} justify="center">
               <Col>
                 <Swiper
@@ -108,11 +113,13 @@ const Home = () => {
                     },
                   }}
                 >
-                  {products.map((product) => (
-                    <SwiperSlide key={product.id}>
-                      <ProductCards product={product} />
-                    </SwiperSlide>
-                  ))}
+                  {loading ? <Spin indicator={loadingIcon} /> : null}
+                  {products?.length &&
+                    products.map((product) => (
+                      <SwiperSlide key={product.id}>
+                        <ProductCards product={product} />
+                      </SwiperSlide>
+                    ))}
                 </Swiper>
               </Col>
             </Row>

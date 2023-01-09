@@ -1,7 +1,7 @@
 import { loadProducts } from "../../actions/productAction";
 
 const loadProductData = () => {
-  return async (dispatch, _getState) => {
+  return async (dispatch, getState) => {
     const response = await fetch("https://dummyjson.com/products");
     const data = await response.json();
 

@@ -45,7 +45,11 @@ const Cart = () => {
                         <td>Product</td>
                         <td>
                           <DeleteFilled
-                            style={{ fontSize: "1.3rem", cursor: "pointer" }}
+                            style={{
+                              fontSize: "1.3rem",
+                              cursor: "pointer",
+                              color: "#ff4d4f",
+                            }}
                             title="Remove"
                           />
                         </td>
