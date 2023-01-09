@@ -124,36 +124,35 @@ const Products = () => {
                 </div>
               </Col>
               <Col sm={24} md={12} lg={18}>
-                <div className={styles.sortContainer}>
-                  <div>
-                    <Paragraph>There is {products?.length} products.</Paragraph>
+                <Spin spinning={loading} indicator={loadingIcon}>
+                  <div className={styles.sortContainer}>
+                    <div>
+                      <Paragraph>
+                        There is {products?.length} products.
+                      </Paragraph>
+                    </div>
+                    <div>
+                      <Dropdown
+                        menu={{
+                          items,
+                        }}
+                        trigger={["click"]}
+                      >
+                        <a className="link" onClick={(e) => e.preventDefault()}>
+                          Sort By
+                        </a>
+                      </Dropdown>
+                    </div>
                   </div>
-                  {!products?.length && loading ? (
-                    <Spin indicator={loadingIcon} />
-                  ) : (
-                    ""
-                  )}
-                  <div>
-                    <Dropdown
-                      menu={{
-                        items,
-                      }}
-                      trigger={["click"]}
-                    >
-                      <a className="link" onClick={(e) => e.preventDefault()}>
-                        Sort By
-                      </a>
-                    </Dropdown>
+                  <div className={styles.productContainer}>
+                    {products?.map((product) => (
+                      <ProductCards key={product.id} product={product} />
+                    ))}
                   </div>
-                </div>
-                <div className={styles.productContainer}>
-                  {products?.map((product) => (
-                    <ProductCards key={product.id} product={product} />
-                  ))}
-                </div>
-                <div style={{ textAlign: "center" }}>
-                  <Pagination defaultCurrent={1} total={50} />
-                </div>
+                  <div style={{ textAlign: "center" }}>
+                    <Pagination defaultCurrent={1} total={50} />
+                  </div>
+                </Spin>
               </Col>
             </Row>
           </div>
