@@ -15,7 +15,7 @@ import CategoriesCard from "../components/cards/CategoriesCard/CategoriesCard";
 import SectionTitle from "../components/common/SectionTitle/SectionTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { loadingStart } from "../redux/actions/productAction";
-import loadProductData from "../redux/thunk/products/fetchProducts";
+import { loadProductData } from "../redux/thunk/products/fetchProducts";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const bannerContentOne = [
@@ -48,7 +48,9 @@ const bannerContentTwo = [
   },
 ];
 
-const loadingIcon = <LoadingOutlined style={{ fontSize: 24 }} />;
+const loadingIcon = (
+  <LoadingOutlined style={{ fontSize: 30, color: "#15bd68" }} />
+);
 
 const Home = () => {
   const dispatch = useDispatch();

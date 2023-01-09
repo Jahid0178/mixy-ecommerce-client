@@ -1,4 +1,8 @@
-import { FETCH_START, LOAD_PRODUCT } from "../actionTypes/actionTypes";
+import {
+  FETCH_START,
+  LOAD_PRODUCT,
+  SINGLE_PRODUCT,
+} from "../actionTypes/actionTypes";
 
 export const loadProducts = (data) => {
   return {
@@ -10,5 +14,12 @@ export const loadProducts = (data) => {
 export const loadingStart = () => {
   return {
     type: FETCH_START,
+  };
+};
+
+export const singleProduct = (data) => {
+  return {
+    type: SINGLE_PRODUCT,
+    payload: data,
   };
 };

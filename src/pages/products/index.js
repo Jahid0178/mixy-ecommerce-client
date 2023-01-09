@@ -56,9 +56,6 @@ const Products = () => {
     dispatch(loadProductData());
   }, [dispatch]);
 
-  const filterProduct = products.filter((product) => product.price <= price);
-  console.log(filterProduct);
-
   return (
     <>
       <Head>
@@ -121,7 +118,7 @@ const Products = () => {
               <Col sm={24} md={12} lg={18}>
                 <div className={styles.sortContainer}>
                   <div>
-                    <Paragraph>There is {products.length} products.</Paragraph>
+                    <Paragraph>There is {products?.length} products.</Paragraph>
                   </div>
                   <div>
                     <Dropdown
@@ -137,7 +134,7 @@ const Products = () => {
                   </div>
                 </div>
                 <div className={styles.productContainer}>
-                  {products.map((product) => (
+                  {products?.map((product) => (
                     <ProductCards key={product.id} product={product} />
                   ))}
                 </div>

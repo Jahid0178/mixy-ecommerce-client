@@ -2,11 +2,15 @@ import { loadProducts } from "../../actions/productAction";
 
 const loadProductData = () => {
   return async (dispatch, getState) => {
-    const response = await fetch("https://dummyjson.com/products");
-    const data = await response.json();
+    try {
+      const response = await fetch("https://dummyjson.com/products");
+      const data = await response.json();
 
-    if (data.products.length) {
-      dispatch(loadProducts(data.products));
+      if (data.products.length) {
+        dispatch(loadProducts(data.products));
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 };

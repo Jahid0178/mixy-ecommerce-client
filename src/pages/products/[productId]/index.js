@@ -4,21 +4,21 @@ import styles from "./productDetail.module.css";
 import Button from "../../../components/common/Buttons/Button";
 import { useRouter } from "next/router";
 import { Col, Image, InputNumber, Rate, Row, Typography } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import loadSingleProduct from "../../../redux/thunk/products/fetchSingleProduct";
+import { loadingStart } from "../../../redux/actions/productAction";
 
 const { Title, Paragraph } = Typography;
 
 const ProductDetails = () => {
-  const [product, setProduct] = React.useState({});
+  const { product, loading } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
   const router = useRouter();
   const { productId } = router.query;
   React.useEffect(() => {
-    fetch(`https://dummyjson.com/products/${productId}`)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
+    dispatch(loadingStart());
+    dispatch(loadSingleProduct(productId));
   }, []);
-
-  const { title, description, price, thumbnail, rating, stock, images } =
-    product;
 
   const onChange = (value) => {
     console.log("Product Quantity", value);
@@ -27,7 +27,7 @@ const ProductDetails = () => {
   return (
     <div>
       <Head>
-        <title>{title}</title>
+        <title>Single Product</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -36,7 +36,7 @@ const ProductDetails = () => {
         <div className="container">
           <Row gutter={[20, 20]} style={{ padding: "5rem 0" }}>
             <Col sm={24} md={12} lg={12} style={{ textAlign: "center" }}>
-              <Image src={thumbnail} alt={title} />
+              <Image src={product?.thumbnail} alt={product?.title} />
               <div
                 style={{
                   display: "flex",
@@ -47,7 +47,7 @@ const ProductDetails = () => {
                 }}
               >
                 <Image.PreviewGroup>
-                  {images?.map((image, ind) => {
+                  {product?.images?.map((image, ind) => {
                     return (
                       <Image key={ind} style={{ height: "100%" }} src={image} />
                     );
@@ -57,19 +57,21 @@ const ProductDetails = () => {
             </Col>
             <Col sm={24} md={12} lg={12}>
               <Title level={2} style={{ marginBottom: 0 }}>
-                {title}
+                {product?.title}
               </Title>
-              <Rate disabled value={rating} allowHalf />
-              <Paragraph className={styles.price}>${price}</Paragraph>
-              <Paragraph>{description}</Paragraph>
+              <Rate disabled value={product?.rating} allowHalf />
+              <Paragraph className={styles.price}>${product?.price}</Paragraph>
+              <Paragraph>{product?.description}</Paragraph>
               <Paragraph>
-                {stock > 0 ? `In Stock: ${stock}` : "Out of stock"}
+                {product?.stock > 0
+                  ? `In Stock: ${product?.stock}`
+                  : "Out of stock"}
               </Paragraph>
-              {stock > 0 && (
+              {product?.stock > 0 && (
                 <div style={{ margin: "1rem 0", display: "flex", gap: 16 }}>
                   <InputNumber
                     min={1}
-                    max={stock}
+                    max={product.stock}
                     onChange={onChange}
                     defaultValue={1}
                   />

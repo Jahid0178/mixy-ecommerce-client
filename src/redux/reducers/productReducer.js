@@ -1,9 +1,14 @@
-import { FETCH_START, LOAD_PRODUCT } from "../actionTypes/actionTypes";
+import {
+  FETCH_START,
+  LOAD_PRODUCT,
+  SINGLE_PRODUCT,
+} from "../actionTypes/actionTypes";
 
 const initialState = {
   products: [],
   loading: false,
   error: null,
+  product: {},
 };
 
 const productReducer = (state = initialState, action) => {
@@ -22,6 +27,13 @@ const productReducer = (state = initialState, action) => {
         error: null,
       };
     }
+    case SINGLE_PRODUCT:
+      return {
+        ...state,
+        loading: false,
+        product: action.payload,
+        error: null,
+      };
     default:
       return state;
   }
