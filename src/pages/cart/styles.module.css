@@ -3,6 +3,7 @@
 .productTable td {
   border: 1px solid #ddd;
   padding: 1rem;
+  border-collapse: collapse;
 }
 
 .productTable {
@@ -10,6 +11,16 @@
   border-radius: 0.3rem;
 }
 
+.productTable th {
+  background: #eef7e0;
+}
+
 .productTable td {
   text-align: center;
+  padding: 0.5rem;
+}
+
+.amountContainer {
+  background: #efefef;
+  padding: 0.5rem;
 }

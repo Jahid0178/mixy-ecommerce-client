@@ -62,16 +62,20 @@ const ProductDetails = () => {
               <Rate disabled value={rating} allowHalf />
               <Paragraph className={styles.price}>${price}</Paragraph>
               <Paragraph>{description}</Paragraph>
-              <Paragraph>In Stock: {stock}</Paragraph>
-              <div style={{ margin: "1rem 0", display: "flex", gap: 16 }}>
-                <InputNumber
-                  min={1}
-                  max={10}
-                  onChange={onChange}
-                  defaultValue={1}
-                />
-                <Button value="Add To Cart" />
-              </div>
+              <Paragraph>
+                {stock > 0 ? `In Stock: ${stock}` : "Out of stock"}
+              </Paragraph>
+              {stock > 0 && (
+                <div style={{ margin: "1rem 0", display: "flex", gap: 16 }}>
+                  <InputNumber
+                    min={1}
+                    max={stock}
+                    onChange={onChange}
+                    defaultValue={1}
+                  />
+                  <Button value="Add To Cart" />
+                </div>
+              )}
               <img src="/public/assets/payment.png" alt="Payment Image" />
             </Col>
           </Row>
