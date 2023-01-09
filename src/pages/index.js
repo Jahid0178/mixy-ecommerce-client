@@ -15,8 +15,8 @@ import CategoriesCard from "../components/cards/CategoriesCard/CategoriesCard";
 import SectionTitle from "../components/common/SectionTitle/SectionTitle";
 import { useDispatch, useSelector } from "react-redux";
 import { loadingStart } from "../redux/actions/productAction";
-import { loadProductData } from "../redux/thunk/products/fetchProducts";
 import { LoadingOutlined } from "@ant-design/icons";
+import loadProductData from "../redux/thunk/products/fetchProducts";
 
 const bannerContentOne = [
   {
