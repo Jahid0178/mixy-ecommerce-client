@@ -3,22 +3,33 @@ import Head from "next/head";
 import styles from "./productDetail.module.css";
 import Button from "../../../components/common/Buttons/Button";
 import { useRouter } from "next/router";
-import { Col, Image, InputNumber, Rate, Row, Typography } from "antd";
+import { Col, Image, InputNumber, Rate, Row, Spin, Typography } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import loadSingleProduct from "../../../redux/thunk/products/fetchSingleProduct";
 import { loadingStart } from "../../../redux/actions/productAction";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const { Title, Paragraph } = Typography;
+
+const loadingIcon = (
+  <LoadingOutlined
+    style={{
+      fontSize: 30,
+      color: "#15bd68",
+    }}
+  />
+);
 
 const ProductDetails = () => {
   const { product, loading } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const router = useRouter();
   const { productId } = router.query;
+
   React.useEffect(() => {
     dispatch(loadingStart());
     dispatch(loadSingleProduct(productId));
-  }, []);
+  }, [dispatch, productId]);
 
   const onChange = (value) => {
     console.log("Product Quantity", value);
@@ -27,7 +38,7 @@ const ProductDetails = () => {
   return (
     <div>
       <Head>
-        <title>Single Product</title>
+        <title>{product?.title}</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -35,6 +46,11 @@ const ProductDetails = () => {
       <main>
         <div className="container">
           <Row gutter={[20, 20]} style={{ padding: "5rem 0" }}>
+            {loading && product === undefined ? (
+              <Spin indicator={loadingIcon} />
+            ) : (
+              false
+            )}
             <Col sm={24} md={12} lg={12} style={{ textAlign: "center" }}>
               <Image src={product?.thumbnail} alt={product?.title} />
               <div
@@ -49,7 +65,12 @@ const ProductDetails = () => {
                 <Image.PreviewGroup>
                   {product?.images?.map((image, ind) => {
                     return (
-                      <Image key={ind} style={{ height: "100%" }} src={image} />
+                      <Image
+                        key={ind}
+                        style={{ height: "100%" }}
+                        src={image}
+                        alt={image}
+                      />
                     );
                   })}
                 </Image.PreviewGroup>
