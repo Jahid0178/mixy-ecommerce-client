@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import logo from "/public/logo.jpg";
 import Image from "next/image";
 import Link from "next/link";
-import { Col, Row, Badge, Dropdown, Drawer } from "antd";
+import { Col, Row, Badge, Dropdown, Drawer, Avatar } from "antd";
 import { RxPerson } from "react-icons/rx";
 import { IoRepeat } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
@@ -12,6 +12,7 @@ import {
   BsMinecartLoaded,
   BsSearch,
 } from "react-icons/bs";
+import { UserOutlined } from "@ant-design/icons";
 import styles from "./style.module.css";
 
 const items = [
@@ -158,7 +159,7 @@ const Navbar = () => {
           ref={navRef}
         >
           <Row className="container" gutter={[25, 25]} align="middle">
-            <Col>
+            <Col sm={24} md={8} lg={6}>
               <Dropdown
                 menu={{
                   items,
@@ -174,7 +175,7 @@ const Navbar = () => {
                 </a>
               </Dropdown>
             </Col>
-            <Col>
+            <Col sm={24} md={8} lg={9}>
               <ul className="link-ul">
                 {routes.map((route, ind) => (
                   <li key={ind}>
@@ -184,6 +185,9 @@ const Navbar = () => {
                   </li>
                 ))}
               </ul>
+            </Col>
+            <Col sm={24} md={8} lg={9} style={{ textAlign: "right" }}>
+              <Avatar size={40} icon={<UserOutlined />} />
             </Col>
           </Row>
         </div>
