@@ -12,7 +12,7 @@ import {
   BsMinecartLoaded,
   BsSearch,
 } from "react-icons/bs";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, LoginOutlined } from "@ant-design/icons";
 import styles from "./style.module.css";
 
 const items = [
@@ -55,6 +55,7 @@ const routes = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [user, setUser] = useState(false);
   const navRef = useRef(null);
   const showDrawer = () => {
     setOpen(true);
@@ -187,7 +188,19 @@ const Navbar = () => {
               </ul>
             </Col>
             <Col sm={24} md={8} lg={9} style={{ textAlign: "right" }}>
-              <Avatar size={40} icon={<UserOutlined />} />
+              {user ? (
+                <Avatar
+                  size={40}
+                  icon={<UserOutlined />}
+                  title="User Profile"
+                  style={{ cursor: "pointer" }}
+                />
+              ) : (
+                <LoginOutlined
+                  title="Login Your Profile"
+                  style={{ fontSize: 30, color: "#fff", cursor: "pointer" }}
+                />
+              )}
             </Col>
           </Row>
         </div>
