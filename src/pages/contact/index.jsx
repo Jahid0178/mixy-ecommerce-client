@@ -21,11 +21,15 @@ const Contact = () => {
           <BreadCrumb />
         </div>
 
-        <section>
-          <div className="container">
-            <h2>Map coming soon</h2>
-          </div>
-        </section>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.096785327894!2d90.25701431545323!3d23.85069669085337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755ebd3a31fc6e1%3A0xe55aca4d05ef4fa2!2sSavar%20New%20Market!5e0!3m2!1sen!2sbd!4v1673381378002!5m2!1sen!2sbd"
+          width="100%"
+          height="550"
+          style={{ border: 0 }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
 
         <section>
           <div className="container">
