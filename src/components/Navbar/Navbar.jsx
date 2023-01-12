@@ -15,6 +15,7 @@ import {
 import { UserOutlined, LoginOutlined } from "@ant-design/icons";
 import styles from "./style.module.css";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 
 const items = [
   {
@@ -56,9 +57,11 @@ const routes = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [user, setUser] = useState(false);
+  // const [user, setUser] = useState(false);
   const navRef = useRef(null);
   const { push } = useRouter();
+  const user = useSelector((state) => state.user);
+  console.log(user);
 
   const showDrawer = () => {
     setOpen(true);

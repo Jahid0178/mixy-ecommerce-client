@@ -11,12 +11,14 @@ import styles from "./login.module.css";
 import RoundButton from "../../components/common/Buttons/RoundButton";
 import { useDispatch } from "react-redux";
 import registerUser from "../../redux/thunk/auth/registerUser";
+import { useRouter } from "next/router";
 
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const Register = () => {
   const [messageApi, contextHolder] = message.useMessage();
   const { register, handleSubmit } = useForm();
+  const { replace } = useRouter();
   const dispatch = useDispatch();
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -26,6 +28,7 @@ const Register = () => {
       });
     } else {
       dispatch(registerUser(data));
+      replace("/");
     }
   };
 

@@ -1,19 +1,23 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase/firebase.initialize";
-import { registerFail, registerStart } from "../../actions/userAction";
+import {
+  registerFail,
+  registerStart,
+  registerSuccess,
+} from "../../actions/userAction";
 
-const registerUser = ({ firstName, email, password }) => {
-  return async (dispatch, getState) => {
+const RegisterUser = ({ email, password }) => {
+  return (dispatch, getState) => {
     dispatch(registerStart());
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        dispatch(registerSuccess(user));
       })
       .catch((error) => {
-        dispatch(registerFail(error));
+        dispatch(registerFail(error.message));
       });
   };
 };
 
-export default registerUser;
+export default RegisterUser;

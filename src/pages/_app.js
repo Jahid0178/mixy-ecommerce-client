@@ -9,10 +9,10 @@ import store from "../redux/store";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Main>
-      <Provider store={store}>
+    <Provider store={store}>
+      <Main>
         <Component {...pageProps} />
-      </Provider>
-    </Main>
+      </Main>
+    </Provider>
   );
 }
