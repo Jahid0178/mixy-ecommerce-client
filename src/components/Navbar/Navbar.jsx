@@ -14,6 +14,7 @@ import {
 } from "react-icons/bs";
 import { UserOutlined, LoginOutlined } from "@ant-design/icons";
 import styles from "./style.module.css";
+import { useRouter } from "next/router";
 
 const items = [
   {
@@ -57,6 +58,8 @@ const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [user, setUser] = useState(false);
   const navRef = useRef(null);
+  const { push } = useRouter();
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -199,6 +202,7 @@ const Navbar = () => {
                 <LoginOutlined
                   title="Login Your Profile"
                   style={{ fontSize: 30, color: "#fff", cursor: "pointer" }}
+                  onClick={() => push("/login")}
                 />
               )}
             </Col>

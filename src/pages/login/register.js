@@ -1,19 +1,34 @@
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import { Col, Row, Typography } from "antd";
+import { message, Col, Row, Typography } from "antd";
 import { useForm } from "react-hook-form";
 import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import secureLogin from "/public/svg/secure_login.svg";
 import styles from "./login.module.css";
 import RoundButton from "../../components/common/Buttons/RoundButton";
+import { useDispatch } from "react-redux";
+import registerUser from "../../redux/thunk/auth/registerUser";
 
 const { Title, Paragraph } = Typography;
 
 const Register = () => {
+  const [messageApi, contextHolder] = message.useMessage();
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const dispatch = useDispatch();
+  const onSubmit = (data) => {
+    if (data.password !== data.confirmPassword) {
+      messageApi.open({
+        type: "error",
+        content: "Password not matches",
+      });
+    } else {
+      dispatch(registerUser(data));
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -23,6 +38,7 @@ const Register = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <main>
+        {contextHolder}
         <div>
           <BreadCrumb />
         </div>
