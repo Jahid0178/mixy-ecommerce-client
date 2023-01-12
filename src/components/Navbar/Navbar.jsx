@@ -60,8 +60,8 @@ const Navbar = () => {
   // const [user, setUser] = useState(false);
   const navRef = useRef(null);
   const { push } = useRouter();
-  const user = useSelector((state) => state.user);
-  console.log(user);
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser);
 
   const showDrawer = () => {
     setOpen(true);
@@ -194,18 +194,18 @@ const Navbar = () => {
               </ul>
             </Col>
             <Col sm={24} md={8} lg={9} style={{ textAlign: "right" }}>
-              {user ? (
+              {!currentUser ? (
+                <LoginOutlined
+                  title="Login Your Profile"
+                  style={{ fontSize: 30, color: "#fff", cursor: "pointer" }}
+                  onClick={() => push("/login")}
+                />
+              ) : (
                 <Avatar
                   size={40}
                   icon={<UserOutlined />}
                   title="User Profile"
                   style={{ cursor: "pointer" }}
-                />
-              ) : (
-                <LoginOutlined
-                  title="Login Your Profile"
-                  style={{ fontSize: 30, color: "#fff", cursor: "pointer" }}
-                  onClick={() => push("/login")}
                 />
               )}
             </Col>

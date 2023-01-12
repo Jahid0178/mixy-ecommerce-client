@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   loading: false,
-  currentUser: null,
+  currentUser: "",
   error: null,
 };
 
@@ -22,7 +22,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        currentUser: action.payload.email,
+        currentUser: action.payload.displayName || action.payload.email,
         error: null,
       };
     case REGISTER_FAIL:
