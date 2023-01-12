@@ -203,7 +203,13 @@ const Navbar = () => {
               ) : (
                 <Avatar
                   size={40}
-                  icon={<UserOutlined />}
+                  icon={
+                    currentUser ? (
+                      `${currentUser.slice(0, 1).trim().toUpperCase()}`
+                    ) : (
+                      <UserOutlined />
+                    )
+                  }
                   title="User Profile"
                   style={{ cursor: "pointer" }}
                 />
