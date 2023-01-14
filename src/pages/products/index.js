@@ -20,6 +20,7 @@ import { priceFilter } from "../../redux/actions/filterAction";
 import loadProductData from "../../redux/thunk/products/fetchProducts";
 import { loadingStart } from "../../redux/actions/productAction";
 import { LoadingOutlined } from "@ant-design/icons";
+import Button from "../../components/common/Buttons/Button";
 
 const { Title, Paragraph } = Typography;
 
@@ -138,7 +139,14 @@ const Products = () => {
                         }}
                         trigger={["click"]}
                       >
-                        <a className="link" onClick={(e) => e.preventDefault()}>
+                        <a
+                          style={{
+                            background: "#15bd68",
+                            padding: "0.5rem 1rem",
+                            color: "#fff",
+                          }}
+                          onClick={(e) => e.preventDefault()}
+                        >
                           Sort By
                         </a>
                       </Dropdown>
