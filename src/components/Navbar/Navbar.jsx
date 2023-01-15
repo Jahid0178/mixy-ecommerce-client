@@ -35,6 +35,25 @@ const items = [
   },
 ];
 
+const dashboardButtonsItems = [
+  {
+    key: "0",
+    label: (
+      <Link href="/profile">
+        <a>Profile</a>
+      </Link>
+    ),
+  },
+  {
+    key: "1",
+    label: (
+      <Link href="#">
+        <a>Logout</a>
+      </Link>
+    ),
+  },
+];
+
 const routes = [
   {
     path: "/",
@@ -61,7 +80,6 @@ const Navbar = () => {
   const navRef = useRef(null);
   const { push } = useRouter();
   const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser);
 
   const showDrawer = () => {
     setOpen(true);
@@ -201,18 +219,24 @@ const Navbar = () => {
                   onClick={() => push("/login")}
                 />
               ) : (
-                <Avatar
-                  size={40}
-                  icon={
-                    currentUser ? (
-                      `${currentUser.slice(0, 1).trim().toUpperCase()}`
-                    ) : (
-                      <UserOutlined />
-                    )
-                  }
-                  title="User Profile"
-                  style={{ cursor: "pointer" }}
-                />
+                <Dropdown
+                  menu={{
+                    dashboardButtonsItems,
+                  }}
+                >
+                  <Avatar
+                    size={40}
+                    icon={
+                      currentUser ? (
+                        `${currentUser.slice(0, 1).trim().toUpperCase()}`
+                      ) : (
+                        <UserOutlined />
+                      )
+                    }
+                    title="User Profile"
+                    style={{ cursor: "pointer" }}
+                  />
+                </Dropdown>
               )}
             </Col>
           </Row>
