@@ -76,7 +76,6 @@ const routes = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  // const [user, setUser] = useState(false);
   const navRef = useRef(null);
   const { push } = useRouter();
   const { currentUser } = useSelector((state) => state.user);
@@ -219,24 +218,19 @@ const Navbar = () => {
                   onClick={() => push("/login")}
                 />
               ) : (
-                <Dropdown
-                  menu={{
-                    dashboardButtonsItems,
-                  }}
-                >
-                  <Avatar
-                    size={40}
-                    icon={
-                      currentUser ? (
-                        `${currentUser.slice(0, 1).trim().toUpperCase()}`
-                      ) : (
-                        <UserOutlined />
-                      )
-                    }
-                    title="User Profile"
-                    style={{ cursor: "pointer" }}
-                  />
-                </Dropdown>
+                <Avatar
+                  size={40}
+                  icon={
+                    currentUser ? (
+                      `${currentUser.slice(0, 1).trim().toUpperCase()}`
+                    ) : (
+                      <UserOutlined />
+                    )
+                  }
+                  title={`${currentUser} Profile`}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => push("/user")}
+                />
               )}
             </Col>
           </Row>

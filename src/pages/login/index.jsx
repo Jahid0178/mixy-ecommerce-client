@@ -6,9 +6,10 @@ import styles from "./login.module.css";
 import Link from "next/link";
 import RoundButton from "../../components/common/Buttons/RoundButton";
 import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import loginUser from "../../redux/thunk/auth/loginUser";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const { Title, Paragraph } = Typography;
 

@@ -28,10 +28,12 @@ const About = () => {
             <section>
               <Row gutter={[20, 10]}>
                 <Col sm={24} md={12} lg={12}>
-                  <img
+                  <Image
                     src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                     alt=""
-                    style={{ width: "100%", borderRadius: "0.3rem" }}
+                    width="620"
+                    height="550"
+                    style={{ width: "100%", height: "100%" }}
                   />
                 </Col>
                 <Col sm={24} md={12} lg={12}>
@@ -104,9 +106,12 @@ const About = () => {
                   <Card
                     bordered={false}
                     cover={
-                      <img
+                      <Image
                         src="https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
-                        alt="Tony Williams"
+                        alt=""
+                        width={1250}
+                        height={450}
+                        style={{ width: "100%", height: "100%" }}
                       />
                     }
                   >
@@ -117,9 +122,12 @@ const About = () => {
                   <Card
                     bordered={false}
                     cover={
-                      <img
+                      <Image
                         src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                         alt="George S."
+                        width={1250}
+                        height={450}
+                        style={{ width: "100%", height: "100%" }}
                       />
                     }
                   >
@@ -130,9 +138,12 @@ const About = () => {
                   <Card
                     bordered={false}
                     cover={
-                      <img
+                      <Image
                         src="https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                         alt="Marjorie Barney"
+                        width={1250}
+                        height={450}
+                        style={{ width: "100%", height: "100%" }}
                       />
                     }
                   >
@@ -143,9 +154,12 @@ const About = () => {
                   <Card
                     bordered={false}
                     cover={
-                      <img
+                      <Image
                         src="https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
                         alt="Jack Jelian"
+                        width={1250}
+                        height={450}
+                        style={{ width: "100%", height: "100%" }}
                       />
                     }
                   >

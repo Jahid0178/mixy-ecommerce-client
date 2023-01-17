@@ -99,7 +99,6 @@ const ProductDetails = () => {
                   <Button value="Add To Cart" />
                 </div>
               )}
-              <img src="/public/assets/payment.png" alt="Payment Image" />
             </Col>
           </Row>
         </div>

@@ -8,7 +8,6 @@ import {
   Tag,
   Pagination,
   Dropdown,
-  Space,
   Spin,
 } from "antd";
 import Head from "next/head";
@@ -20,7 +19,6 @@ import { priceFilter } from "../../redux/actions/filterAction";
 import loadProductData from "../../redux/thunk/products/fetchProducts";
 import { loadingStart } from "../../redux/actions/productAction";
 import { LoadingOutlined } from "@ant-design/icons";
-import Button from "../../components/common/Buttons/Button";
 
 const { Title, Paragraph } = Typography;
 

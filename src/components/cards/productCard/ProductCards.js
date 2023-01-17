@@ -6,6 +6,7 @@ import {
 } from "@ant-design/icons";
 import styles from "./productCard.module.css";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const { Meta } = Card;
 const { Text } = Typography;
@@ -28,10 +29,12 @@ const ProductCards = ({ product }) => {
       <Card
         style={{ width: "100%" }}
         cover={
-          <img
+          <Image
             src={thumbnail}
             alt={title}
             style={{ width: "100%", height: "180px" }}
+            width="250"
+            height="350"
           />
         }
         actions={[
