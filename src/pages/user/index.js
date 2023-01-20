@@ -1,10 +1,14 @@
-import React from "react";
-import { Col, Menu, Row } from "antd";
+import React, { useState } from "react";
 import {
-  AppstoreOutlined,
-  MailOutlined,
-  SettingOutlined,
+  FileOutlined,
+  PieChartOutlined,
+  UserOutlined,
+  DesktopOutlined,
+  TeamOutlined,
 } from "@ant-design/icons";
+import { Breadcrumb, Layout, Menu, theme } from "antd";
+import Head from "next/head";
+const { Header, Content, Footer, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
   return {
@@ -16,24 +20,90 @@ function getItem(label, key, icon, children) {
 }
 
 const items = [
-  getItem("UserProfile", "profile", <MailOutlined />),
-  getItem("History", "history", <AppstoreOutlined />),
-  getItem("Wishlist", "wishlist", <SettingOutlined />),
+  getItem("Option 1", "1", <PieChartOutlined />),
+  getItem("Option 2", "2", <DesktopOutlined />),
+  getItem("User", "sub1", <UserOutlined />, [
+    getItem("Tom", "3"),
+    getItem("Bill", "4"),
+    getItem("Alex", "5"),
+  ]),
+  getItem("Team", "sub2", <TeamOutlined />, [
+    getItem("Team 1", "6"),
+    getItem("Team 2", "8"),
+  ]),
+  getItem("Files", "9", <FileOutlined />),
 ];
 
 const UserProfile = () => {
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <>
-      <section>
-        <Row gutter={[20, 20]} style={{ width: "100%", height: "100vh" }}>
-          <Col sm={24} md={12} lg={4} style={{ width: "100%" }}>
-            <Menu style={{ width: "100%" }} items={items} />
-          </Col>
-          <Col sm={24} md={12} lg={20} style={{ width: "100%" }}>
-            Display
-          </Col>
-        </Row>
-      </section>
+      <Head>
+        <title>User Profile</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <Layout
+        style={{
+          minHeight: "100vh",
+        }}
+      >
+        <Sider
+          collapsible
+          collapsed={collapsed}
+          onCollapse={(value) => setCollapsed(value)}
+        >
+          <div
+            style={{
+              height: 32,
+              margin: 16,
+              background: "rgba(255, 255, 255, 0.2)",
+            }}
+          />
+          <Menu
+            theme="dark"
+            defaultSelectedKeys={["1"]}
+            mode="inline"
+            items={items}
+          />
+        </Sider>
+        <Layout className="site-layout">
+          <Header
+            style={{
+              padding: 0,
+            }}
+          />
+          <Content
+            style={{
+              margin: "0 16px",
+            }}
+          >
+            <Breadcrumb
+              style={{
+                margin: "16px 0",
+              }}
+            >
+              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+            </Breadcrumb>
+            <div
+              style={{
+                padding: 24,
+                minHeight: 360,
+              }}
+            >
+              Bill is a cat.
+            </div>
+          </Content>
+          <Footer
+            style={{
+              textAlign: "center",
+            }}
+          >
+            Ant Design ©2023 Created by Ant UED
+          </Footer>
+        </Layout>
+      </Layout>
     </>
   );
 };

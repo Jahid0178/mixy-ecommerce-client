@@ -1,3 +1,12 @@
+.mainNav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  z-index: 9999;
+}
+
 .navbarContainer {
   display: flex;
   justify-content: space-between;
@@ -54,6 +63,7 @@
     background: #fff;
     width: 100vw;
     height: 100vh;
+    overflow-y: auto;
   }
 
   .navbarLists {

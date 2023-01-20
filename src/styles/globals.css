@@ -45,10 +45,6 @@ input {
   color: #000;
 }
 
-section {
-  padding: 1rem 0;
-}
-
 .container {
   max-width: 1300px;
   width: 100%;

@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { FiLogIn } from "react-icons/fi";
 import { BsCart4 } from "react-icons/bs";
+import { useSelector } from "react-redux";
 
 const navigationLinks = [
   {
@@ -24,23 +25,15 @@ const navigationLinks = [
     title: "Contact Us",
     to: "/contact",
   },
-  {
-    title: "",
-    to: "/cart",
-    icons: <BsCart4 size={20} />,
-  },
-  {
-    title: "Login",
-    to: "/login",
-  },
 ];
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  console.log(active);
+  const { currentUser } = useSelector((state) => state.user);
+  console.log(currentUser);
   return (
     <>
-      <nav>
+      <nav className={styles.mainNav}>
         <div className="container">
           <div className={styles.navbarContainer}>
             <Image
@@ -66,6 +59,18 @@ const Navbar = () => {
                   </li>
                 );
               })}
+              <li>
+                <Link href="/cart">
+                  <BsCart4 size={20} style={{ color: "000" }} />
+                </Link>
+              </li>
+              <li className={styles.navbarLists}>
+                {currentUser.length ? (
+                  <Link href="/user">Profile</Link>
+                ) : (
+                  <Link href="/login">Login</Link>
+                )}
+              </li>
             </ul>
           </div>
 
