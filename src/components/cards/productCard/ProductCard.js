@@ -11,7 +11,7 @@ import Image from "next/image";
 const { Meta } = Card;
 const { Text } = Typography;
 
-const ProductCards = ({ product }) => {
+const ProductCard = ({ product }) => {
   const router = useRouter();
   const { push } = router;
   const {
@@ -32,9 +32,9 @@ const ProductCards = ({ product }) => {
           <Image
             src={thumbnail}
             alt={title}
-            style={{ width: "100%", height: "180px" }}
             width="250"
             height="350"
+            style={{ width: "100%", height: "180px" }}
           />
         }
         actions={[
@@ -69,4 +69,4 @@ const ProductCards = ({ product }) => {
   );
 };
 
-export default ProductCards;
+export default ProductCard;

@@ -12,13 +12,13 @@ import {
 } from "antd";
 import Head from "next/head";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
-import ProductCards from "../../components/cards/ProductCard/ProductCards";
 import styles from "./style.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { priceFilter } from "../../redux/actions/filterAction";
 import loadProductData from "../../redux/thunk/products/fetchProducts";
 import { loadingStart } from "../../redux/actions/productAction";
 import { LoadingOutlined } from "@ant-design/icons";
+import ProductCard from "../../components/cards/ProductCard/ProductCard";
 
 const { Title, Paragraph } = Typography;
 
@@ -152,7 +152,7 @@ const Products = () => {
                   </div>
                   <div className={styles.productContainer}>
                     {products?.map((product) => (
-                      <ProductCards key={product.id} product={product} />
+                      <ProductCard key={product.id} product={product} />
                     ))}
                   </div>
                   <div style={{ textAlign: "center" }}>

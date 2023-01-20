@@ -1,250 +1,79 @@
-import React, { useEffect, useRef, useState } from "react";
-import logo from "/public/logo.jpg";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Col, Row, Badge, Dropdown, Drawer, Avatar } from "antd";
-import { RxPerson } from "react-icons/rx";
-import { IoRepeat } from "react-icons/io5";
-import { HiMenu } from "react-icons/hi";
-import {
-  BsTelephone,
-  BsHeart,
-  BsMinecartLoaded,
-  BsSearch,
-} from "react-icons/bs";
-import { UserOutlined, LoginOutlined } from "@ant-design/icons";
+import Logo from "/public/assets/images/logo.jpg";
 import styles from "./style.module.css";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { AiOutlineMenu } from "react-icons/ai";
+import { FiLogIn } from "react-icons/fi";
+import { BsCart4 } from "react-icons/bs";
 
-const items = [
+const navigationLinks = [
   {
-    label: <a href="https://www.antgroup.com">Our special products</a>,
-    key: "0",
-  },
-  {
-    label: <a href="https://www.aliyun.com">Our best sales</a>,
-    key: "1",
-  },
-  {
-    type: "divider",
-  },
-  {
-    label: "New Arrivals",
-    key: "3",
-  },
-];
-
-const dashboardButtonsItems = [
-  {
-    key: "0",
-    label: (
-      <Link href="/profile">
-        <a>Profile</a>
-      </Link>
-    ),
-  },
-  {
-    key: "1",
-    label: (
-      <Link href="#">
-        <a>Logout</a>
-      </Link>
-    ),
-  },
-];
-
-const routes = [
-  {
-    path: "/",
     title: "Home",
+    to: "/",
   },
   {
-    path: "/about",
-    title: "About Us",
+    title: "About",
+    to: "/about",
   },
   {
-    path: "/products",
     title: "Products",
+    to: "/products",
   },
   {
-    path: "/contact",
     title: "Contact Us",
+    to: "/contact",
+  },
+  {
+    title: "",
+    to: "/cart",
+    icons: <BsCart4 size={20} />,
+  },
+  {
+    title: "Login",
+    to: "/login",
   },
 ];
 
 const Navbar = () => {
-  const [open, setOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-  const navRef = useRef(null);
-  const { push } = useRouter();
-  const { currentUser } = useSelector((state) => state.user);
-
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const closeDrawer = () => {
-    setOpen(false);
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const navHeight = navRef.current.offsetHeight;
-      setIsSticky(window.scrollY > navHeight);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+  const [active, setActive] = useState(false);
+  console.log(active);
   return (
     <>
       <nav>
         <div className="container">
-          <Row gutter={[20, 20]} align="middle">
-            <Col span={8}>
-              <p style={{ marginBottom: 0 }}>
-                Free shipping on orders over $25.{" "}
-                <a href="#" className="link">
-                  Read more.
-                </a>
-              </p>
-            </Col>
-            <Col span={8}></Col>
-            <Col span={8}>
-              <BsTelephone style={{ marginRight: "5px" }} />{" "}
-              <span>
-                Need help? Call Us:{" "}
-                <strong>
-                  <a href="tel:+88 01789-293803">+88 01789-293803</a>
-                </strong>
-              </span>
-            </Col>
-          </Row>
-        </div>
-
-        <div className="container">
-          <Row gutter={[15, 15]} align="middle">
-            <Col span={6} xs={24} sm={24} md={8}>
-              <Image src={logo} alt="Mixy Logo" />
-            </Col>
-            <Col span={9} xs={24} sm={24} md={8}>
-              <div className="input-wrapper">
-                <input
-                  type="search"
-                  name="searchBox"
-                  id=""
-                  placeholder="Enter your search key..."
-                />
-                <button>
-                  <BsSearch size={20} />
-                </button>
-              </div>
-            </Col>
-            <Col span={9} xs={24} sm={24} md={8}>
-              <ul className="link-ul">
-                <li className="link-list">
-                  <Link href="/login" title="Login to customer account">
-                    <RxPerson size={20} />
-                  </Link>
-                </li>
-                <li className="link-list">
-                  <Badge count={1} offset={[-5, 10]}>
-                    <Link href="#" title="Compare">
-                      <IoRepeat size={20} />
-                    </Link>
-                  </Badge>
-                </li>
-                <li className="link-list">
-                  <Badge count={1} offset={[-5, 10]}>
-                    <Link href="#" title="Wishlist">
-                      <BsHeart size={20} />
-                    </Link>
-                  </Badge>
-                </li>
-                <li className="link-list">
-                  <Badge count={1} offset={[-5, 10]}>
-                    <Link href="#" title="Cart" onClick={showDrawer}>
-                      <BsMinecartLoaded size={20} />
-                    </Link>
-                  </Badge>
-                </li>
-              </ul>
-            </Col>
-          </Row>
-        </div>
-
-        <div
-          className={`${styles.navbarContainer} ${
-            isSticky ? styles.stickyNav : ""
-          }`}
-          ref={navRef}
-        >
-          <Row className="container" gutter={[25, 25]} align="middle">
-            <Col sm={24} md={8} lg={6}>
-              <Dropdown
-                menu={{
-                  items,
-                }}
-                trigger={["click"]}
-                arrow
-              >
-                <a
-                  onClick={(e) => e.preventDefault()}
-                  className="dropdown-menu"
-                >
-                  <HiMenu size="1.3rem" /> All Categories
-                </a>
-              </Dropdown>
-            </Col>
-            <Col sm={24} md={8} lg={9}>
-              <ul className="link-ul">
-                {routes.map((route, ind) => (
-                  <li key={ind}>
-                    <Link href={route.path} className="nav-link">
-                      {route.title}
+          <div className={styles.navbarContainer}>
+            <Image
+              src={Logo}
+              alt="Mixy E-Commerce Logo"
+              width="195"
+              height="53"
+            />
+            <ul
+              className={`${
+                active
+                  ? styles.navbarListsMobileContainer
+                  : styles.navbarListsContainer
+              }`}
+            >
+              {navigationLinks.map((navigationLink, ind) => {
+                const { title, to, icons } = navigationLink;
+                return (
+                  <li key={ind} className={styles.navbarLists}>
+                    <Link href={to} onClick={() => setActive(false)}>
+                      {icons} {title}
                     </Link>
                   </li>
-                ))}
-              </ul>
-            </Col>
-            <Col sm={24} md={8} lg={9} style={{ textAlign: "right" }}>
-              {!currentUser ? (
-                <LoginOutlined
-                  title="Login Your Profile"
-                  style={{ fontSize: 30, color: "#fff", cursor: "pointer" }}
-                  onClick={() => push("/login")}
-                />
-              ) : (
-                <Avatar
-                  size={40}
-                  icon={
-                    currentUser ? (
-                      `${currentUser.slice(0, 1).trim().toUpperCase()}`
-                    ) : (
-                      <UserOutlined />
-                    )
-                  }
-                  title={`${currentUser} Profile`}
-                  style={{ cursor: "pointer" }}
-                  onClick={() => push("/user")}
-                />
-              )}
-            </Col>
-          </Row>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* two button for open and close of menu */}
+          <div className="mobile-navbar-btn mobile">
+            <AiOutlineMenu size={20} onClick={() => setActive(!active)} />
+          </div>
         </div>
-        <Drawer
-          title="Cart"
-          placement="right"
-          onClose={closeDrawer}
-          open={open}
-        >
-          <p>Product One</p>
-          <p>Product Two</p>
-          <p>Product Three</p>
-        </Drawer>
       </nav>
     </>
   );

@@ -56,6 +56,14 @@ section {
   padding: 0.5rem;
 }
 
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
 .pos-title {
   margin-bottom: 1.5rem;
 }
@@ -73,6 +81,8 @@ section {
   color: #000 !important;
 }
 
+/* Navigation */
+
 /* Buttons start here */
 
 .dropdown-menu {
@@ -85,6 +95,7 @@ section {
   display: flex;
   align-items: center;
   gap: 0.4rem;
+  cursor: pointer;
 }
 
 .dropdown-menu:hover {
@@ -127,44 +138,30 @@ section {
 }
 
 .nav-link {
-  color: #fff;
-  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0 0.5rem;
 }
 
 .nav-link:hover {
   color: #15bd68;
 }
 
-.input-wrapper {
-  display: flex;
-}
+@media only screen and (max-width: 688px) {
+  .desktop {
+    display: none;
+  }
 
-.input-wrapper input {
-  width: 100%;
-  outline: none;
-  padding: 0.7rem 1rem;
-  border: 1px solid #ededed;
-  background-color: rgb(245, 245, 245);
-  font-size: 1rem;
-  border-radius: 50px 0 0 50px;
-  border-right: 0;
-}
+  .mobile {
+    display: block;
+  }
 
-.input-wrapper button {
-  border: 1px solid #ededed;
-  background-color: rgb(245, 245, 245);
-  border-left: 0;
-  padding: 0.7rem 1.5rem 0.7rem 1.1rem;
-  border-radius: 0 50px 50px 0;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.input-wrapper button:hover {
-  background: #15bd68;
-  transition: 0.3s;
-}
-
-.input-wrapper button:hover svg {
-  fill: #fff;
+  /* Navigation */
+  .mobile-navbar-btn {
+    position: absolute;
+    top: 3%;
+    right: 5%;
+    z-index: 999;
+  }
 }

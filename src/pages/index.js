@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import ProductCards from "../components/cards/productCard/ProductCards";
 import Newsletter from "../components/common/Newsletter/Newsletter";
 import HeroSlider from "../components/sliders/HeroSlider/HeroSlider";
 import BannerOne from "/public/assets/banners/home_banner1.jpg";
@@ -17,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loadingStart } from "../redux/actions/productAction";
 import { LoadingOutlined } from "@ant-design/icons";
 import loadProductData from "../redux/thunk/products/fetchProducts";
+import ProductCard from "../components/cards/ProductCard/ProductCard";
 
 const bannerContentOne = [
   {
@@ -77,9 +77,9 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <main>
-        <header>
+        <section>
           <HeroSlider />
-        </header>
+        </section>
         <section>
           <div className="container">
             <SmallBanner contents={bannerContentOne} />
@@ -119,7 +119,7 @@ const Home = () => {
                   {products?.length &&
                     products.map((product) => (
                       <SwiperSlide key={product.id}>
-                        <ProductCards product={product} />
+                        <ProductCard product={product} />
                       </SwiperSlide>
                     ))}
                 </Swiper>
@@ -167,7 +167,7 @@ const Home = () => {
                 >
                   {newArrivals.map((product) => (
                     <SwiperSlide key={product.id}>
-                      <ProductCards product={product} />
+                      <ProductCard product={product} />
                     </SwiperSlide>
                   ))}
                 </Swiper>
