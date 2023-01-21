@@ -6,13 +6,16 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Provider } from "react-redux";
 import store from "../redux/store";
+import AuthProvider from "../context/AuthProvider";
 
 export default function App({ Component, pageProps }) {
   return (
-    <Provider store={store}>
-      <Main>
-        <Component {...pageProps} />
-      </Main>
-    </Provider>
+    <AuthProvider>
+      <Provider store={store}>
+        <Main>
+          <Component {...pageProps} />
+        </Main>
+      </Provider>
+    </AuthProvider>
   );
 }

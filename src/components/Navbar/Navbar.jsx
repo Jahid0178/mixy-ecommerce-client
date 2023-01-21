@@ -29,8 +29,8 @@ const navigationLinks = [
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-  const { currentUser } = useSelector((state) => state.user);
-  console.log(currentUser);
+
+  console.log(process.env.f);
   return (
     <>
       <nav className={styles.mainNav}>
@@ -65,11 +65,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className={styles.navbarLists}>
-                {currentUser.length ? (
-                  <Link href="/user">Profile</Link>
-                ) : (
-                  <Link href="/login">Login</Link>
-                )}
+                <Link href="/login">Login</Link>
               </li>
             </ul>
           </div>
