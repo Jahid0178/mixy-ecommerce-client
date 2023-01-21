@@ -14,7 +14,7 @@ import useAuth from "../../hooks/useAuth";
 const { Title } = Typography;
 
 const Register = () => {
-  const { signInWithEmailPassword } = useAuth();
+  const { signInWithEmailPassword, signInWithGoogle } = useAuth();
   const [messageApi, contextHolder] = message.useMessage();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -26,6 +26,10 @@ const Register = () => {
     } else {
       signInWithEmailPassword(data);
     }
+  };
+
+  const handleGoogleButton = () => {
+    signInWithGoogle();
   };
 
   return (
@@ -129,6 +133,7 @@ const Register = () => {
                       borderRadius: "0.3rem",
                       cursor: "pointer",
                     }}
+                    onClick={() => handleGoogleButton()}
                     icon={<GoogleOutlined style={{ color: "#fff" }} />}
                   />
                   <RoundButton

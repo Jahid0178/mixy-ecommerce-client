@@ -65,7 +65,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className={styles.navbarLists}>
-                {displayName.length && email.length ? (
+                {displayName || email ? (
                   <Link href="/user">Profile</Link>
                 ) : (
                   <Link href="/login">Login</Link>
