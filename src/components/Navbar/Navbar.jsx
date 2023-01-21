@@ -4,9 +4,8 @@ import Link from "next/link";
 import Logo from "/public/assets/images/logo.jpg";
 import styles from "./style.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
-import { FiLogIn } from "react-icons/fi";
 import { BsCart4 } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import useAuth from "../../hooks/useAuth";
 
 const navigationLinks = [
   {
@@ -29,8 +28,9 @@ const navigationLinks = [
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
-
-  console.log(process.env.f);
+  const { userInfo } = useAuth();
+  const { displayName, email } = userInfo;
+  console.log(displayName, email);
   return (
     <>
       <nav className={styles.mainNav}>
@@ -65,7 +65,11 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className={styles.navbarLists}>
-                <Link href="/login">Login</Link>
+                {displayName.length && email.length ? (
+                  <Link href="/user">Profile</Link>
+                ) : (
+                  <Link href="/login">Login</Link>
+                )}
               </li>
             </ul>
           </div>

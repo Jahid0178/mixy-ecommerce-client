@@ -9,26 +9,22 @@ import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import secureLogin from "/public/svg/secure_login.svg";
 import styles from "./login.module.css";
 import RoundButton from "../../components/common/Buttons/RoundButton";
-import { useDispatch } from "react-redux";
-import registerUser from "../../redux/thunk/auth/registerUser";
-import { useRouter } from "next/router";
+import useAuth from "../../hooks/useAuth";
 
 const { Title } = Typography;
 
 const Register = () => {
+  const { signInWithEmailPassword } = useAuth();
   const [messageApi, contextHolder] = message.useMessage();
   const { register, handleSubmit } = useForm();
-  const { replace } = useRouter();
-  const dispatch = useDispatch();
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
       messageApi.open({
         type: "error",
-        content: "Password not matches",
+        content: "Password not matched.",
       });
     } else {
-      dispatch(registerUser(data));
-      replace("/");
+      signInWithEmailPassword(data);
     }
   };
 
@@ -41,10 +37,10 @@ const Register = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <main>
-        {contextHolder}
         <div>
           <BreadCrumb />
         </div>
+        {contextHolder}
         <section>
           <div className="container">
             <Title level={2}>Register your account</Title>

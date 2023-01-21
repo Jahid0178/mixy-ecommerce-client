@@ -6,21 +6,23 @@ import styles from "./login.module.css";
 import Link from "next/link";
 import RoundButton from "../../components/common/Buttons/RoundButton";
 import { GoogleOutlined, GithubOutlined } from "@ant-design/icons";
-import { useDispatch, useSelector } from "react-redux";
-import loginUser from "../../redux/thunk/auth/loginUser";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const { Title, Paragraph } = Typography;
 
 const Login = () => {
+  const { signInWithGoogle } = useAuth();
   const { push } = useRouter();
-  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    dispatch(loginUser(data));
-    push("/");
+    console.log(data);
   };
+
+  const handleGoogleButton = () => {
+    signInWithGoogle();
+  };
+
   return (
     <div>
       <Head>
@@ -85,7 +87,7 @@ const Login = () => {
                       cursor: "pointer",
                     }}
                     icon={<GoogleOutlined style={{ color: "#fff" }} />}
-                    onClick={() => console.log("clicked on google button")}
+                    onClick={() => handleGoogleButton()}
                   />
                   <RoundButton
                     value="Login With Github"
