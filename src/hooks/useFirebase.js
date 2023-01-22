@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import initializeAuthentication from "../firebase/firebase.init";
 
@@ -25,6 +26,18 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         setUserInfo(result.user);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
+  // User sign out
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        setUserInfo({});
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -54,13 +67,14 @@ const useFirebase = () => {
         setUserInfo({});
       }
     });
-  }, [auth]);
+  }, []);
 
   return {
     userInfo,
     error,
     signInWithGoogle,
     signInWithEmailPassword,
+    logOut,
   };
 };
 

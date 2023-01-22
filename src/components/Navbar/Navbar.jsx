@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
 import useAuth from "../../hooks/useAuth";
+import { Badge, Drawer } from "antd";
 
 const navigationLinks = [
   {
@@ -28,9 +29,18 @@ const navigationLinks = [
 
 const Navbar = () => {
   const [active, setActive] = useState(false);
+  const [open, setOpen] = useState(false);
   const { userInfo } = useAuth();
   const { displayName, email } = userInfo;
-  console.log(displayName, email);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
   return (
     <>
       <nav className={styles.mainNav}>
@@ -50,18 +60,20 @@ const Navbar = () => {
               }`}
             >
               {navigationLinks.map((navigationLink, ind) => {
-                const { title, to, icons } = navigationLink;
+                const { title, to } = navigationLink;
                 return (
                   <li key={ind} className={styles.navbarLists}>
                     <Link href={to} onClick={() => setActive(false)}>
-                      {icons} {title}
+                      {title}
                     </Link>
                   </li>
                 );
               })}
-              <li>
-                <Link href="/cart">
-                  <BsCart4 size={20} style={{ color: "000" }} />
+              <li className={styles.navbarLists}>
+                <Link href="#" onClick={showDrawer}>
+                  <Badge count={0} showZero>
+                    <BsCart4 size={20} style={{ color: "000" }} />
+                  </Badge>
                 </Link>
               </li>
               <li className={styles.navbarLists}>
@@ -80,6 +92,16 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <Drawer
+        title="Basic Drawer"
+        placement="right"
+        onClose={onClose}
+        open={open}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
     </>
   );
 };

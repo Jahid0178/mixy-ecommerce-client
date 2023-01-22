@@ -108,6 +108,9 @@ const Footer = () => {
             </Row>
           </Col>
         </Row>
+        <Paragraph style={{ textAlign: "center", marginBottom: 0 }}>
+          © {new Date().getFullYear()} IconifySoft. All Rights Reserved
+        </Paragraph>
       </div>
     </section>
   );

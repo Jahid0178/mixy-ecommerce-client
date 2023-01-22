@@ -13,6 +13,7 @@ import History from "./history";
 import WishList from "./wishlist";
 import Invoice from "./invoice";
 import useAuth from "../../hooks/useAuth";
+import { useRouter } from "next/router";
 const { Header, Content, Footer, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
@@ -35,11 +36,13 @@ const items = [
 const UserProfile = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [selected, setSelected] = useState("Profile");
-  const { userInfo } = useAuth();
+  const { replace } = useRouter();
+  const { userInfo, logOut } = useAuth();
   const { displayName, email } = userInfo;
 
   const handleLogOut = () => {
-    console.log("User clicked on log out button");
+    logOut();
+    replace("/");
   };
 
   return (

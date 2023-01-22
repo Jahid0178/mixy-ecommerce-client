@@ -1,13 +1,12 @@
-import { Col, InputNumber, Row } from "antd";
+import { Col, Row } from "antd";
 import Head from "next/head";
 import React from "react";
 import BreadCrumb from "../../components/common/BreadCrumb/BreadCrumb";
 import styles from "./styles.module.css";
-import { DeleteFilled } from "@ant-design/icons";
 import Button from "../../components/common/Buttons/Button";
+import ProductTable from "../../components/Table/ProductTable";
 
 const Cart = () => {
-  const productQuantity = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   return (
     <>
       <Head>
@@ -19,44 +18,7 @@ const Cart = () => {
           <Row gutter={[20, 20]}>
             <Col sm={24} md={12} lg={16}>
               <div style={{ maxHeight: "335px", overflowY: "scroll" }}>
-                <table className={styles.productTable}>
-                  <thead>
-                    <tr>
-                      <th>Item</th>
-                      <th>Price</th>
-                      <th>Qty</th>
-                      <th>Total Price</th>
-                      <th>Remove Product</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {productQuantity.map((_product, ind) => (
-                      <tr key={ind}>
-                        <td>Product</td>
-                        <td>$120</td>
-                        <td>
-                          <InputNumber
-                            min={1}
-                            max={100}
-                            defaultValue={1}
-                            size="large"
-                          />
-                        </td>
-                        <td>Product</td>
-                        <td>
-                          <DeleteFilled
-                            style={{
-                              fontSize: "1.3rem",
-                              cursor: "pointer",
-                              color: "#ff4d4f",
-                            }}
-                            title="Remove"
-                          />
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                <ProductTable />
               </div>
               <div style={{ margin: "1rem 0" }}>
                 <Button value="Continue Shipping" />
