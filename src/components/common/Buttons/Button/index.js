@@ -1,13 +1,14 @@
 import React from "react";
 import styles from "./button.module.css";
 
-const Button = ({ value, disable, type, onClick, icon }) => {
+const Button = ({ value, disable, type, onClick, icon, style }) => {
   return (
     <button
       type={type}
       disabled={disable}
       className={`${styles.btn}`}
       onClick={onClick}
+      style={style}
     >
       {value} {icon}
     </button>

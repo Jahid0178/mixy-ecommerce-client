@@ -7,6 +7,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
 import useAuth from "../../hooks/useAuth";
 import { Badge, Drawer } from "antd";
+import Button from "../common/Buttons/Button";
 
 const navigationLinks = [
   {
@@ -98,9 +99,24 @@ const Navbar = () => {
         onClose={onClose}
         open={open}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <div
+          style={{
+            height: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: "column",
+          }}
+        >
+          <div>
+            <p>Product 1</p>
+            <p>Product 2</p>
+            <p>Product 3</p>
+          </div>
+
+          <div>
+            <Button style={{ width: "100%" }} value="Checkout" />
+          </div>
+        </div>
       </Drawer>
     </>
   );
