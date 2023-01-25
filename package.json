@@ -11,6 +11,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
     "@next/font": "13.1.1",
+    "@react-pdf/renderer": "^3.0.3",
     "@redux-devtools/extension": "^3.2.3",
     "animate.css": "^4.1.1",
     "antd": "^5.1.1",
