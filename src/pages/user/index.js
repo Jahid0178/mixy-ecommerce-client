@@ -6,13 +6,15 @@ import {
   ShoppingCartOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
 import Head from "next/head";
 import Profile from "./profile";
 import History from "./history";
 import WishList from "./wishlist";
+import TrackOder from "./trackOrder";
 import Invoice from "./invoice";
 import useAuth from "../../hooks/useAuth";
+import { Layout, Menu } from "antd";
+import { FaShuttleVan } from "react-icons/fa";
 import { useRouter } from "next/router";
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -30,7 +32,8 @@ const items = [
   getItem("History", "2", <HistoryOutlined />),
   getItem("Wishlist", "3", <ShoppingCartOutlined />),
   getItem("Invoice", "4", <FileOutlined />),
-  getItem("Logout", "5", <LogoutOutlined />),
+  getItem("TrackOrder", "5", <FaShuttleVan />),
+  getItem("Logout", "6", <LogoutOutlined />),
 ];
 
 const UserProfile = () => {
@@ -55,6 +58,7 @@ const UserProfile = () => {
       <Layout
         style={{
           minHeight: "100vh",
+          padding: 0,
         }}
       >
         <Sider
@@ -84,7 +88,7 @@ const UserProfile = () => {
             onClick={(e) => setSelected(e.domEvent.target.innerText)}
           />
         </Sider>
-        <Layout className="site-layout">
+        <Layout className="site-layout" style={{ padding: 0 }}>
           <Header
             style={{
               padding: 0,
@@ -105,6 +109,7 @@ const UserProfile = () => {
               {selected === "History" && <History />}
               {selected === "Wishlist" && <WishList />}
               {selected === "Invoice" && <Invoice />}
+              {selected === "TrackOrder" && <TrackOder />}
               {selected === "Logout" && handleLogOut()}
             </div>
           </Content>
@@ -113,7 +118,7 @@ const UserProfile = () => {
               textAlign: "center",
             }}
           >
-            Ant Design ©2023 Created by Ant UED
+            © {new Date().getFullYear()} IconifySoft, All Rights Reserved
           </Footer>
         </Layout>
       </Layout>

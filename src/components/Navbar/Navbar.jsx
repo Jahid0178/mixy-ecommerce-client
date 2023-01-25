@@ -8,6 +8,9 @@ import { BsCart4 } from "react-icons/bs";
 import useAuth from "../../hooks/useAuth";
 import { Badge, Drawer } from "antd";
 import Button from "../common/Buttons/Button";
+import { Typography } from "antd";
+
+const { Paragraph } = Typography;
 
 const navigationLinks = [
   {
@@ -79,7 +82,14 @@ const Navbar = () => {
               </li>
               <li className={styles.navbarLists}>
                 {displayName || email ? (
-                  <Link href="/user">Profile</Link>
+                  <Link href="/user">
+                    <Paragraph
+                      style={{ margin: 0, fontSize: 16, fontWeight: 600 }}
+                      ellipsis={true}
+                    >
+                      Welcome To {displayName || email}
+                    </Paragraph>
+                  </Link>
                 ) : (
                   <Link href="/login">Login</Link>
                 )}

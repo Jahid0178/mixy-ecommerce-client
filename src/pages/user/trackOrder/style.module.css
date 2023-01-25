@@ -1,0 +1,9 @@
+.orderTrackContainer {
+  background: rgb(236, 236, 236);
+  padding: 1rem;
+}
+
+.orderTitle {
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,4 +1,4 @@
-import { Card, Col, Row, Typography } from "antd";
+import { Card, Col, Collapse, Row, Typography } from "antd";
 import Head from "next/head";
 import Image from "next/image";
 import React from "react";
@@ -11,8 +11,70 @@ import support from "/public/svg/support.svg";
 
 const { Paragraph, Title } = Typography;
 const { Meta } = Card;
+const { Panel } = Collapse;
+
+const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+const facilitiesContent = [
+  {
+    image: shipping,
+    title: "Free Shipping",
+    description: "Free shipping on all Dhaka order or order above $200",
+  },
+  {
+    image: support,
+    title: "24X7 Support",
+    description:
+      "Contact us 24 hours a day, 7 days a week. For any problem or any solution",
+  },
+  {
+    image: inventory,
+    title: "30 Days Return",
+    description:
+      "Simply return it within 30 days for an exchange. You can choose other",
+  },
+  {
+    image: creditCard,
+    title: "Payment Secure",
+    description: "You can payment us securely. it will be secret from others",
+  },
+];
+
+const teams = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+    name: "Tony Williams",
+    role: "Founder / Ceo",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    name: "George S.",
+    role: "Founder",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    name: "Marjorie Barney",
+    role: "Designer",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    name: "Jack Jelian",
+    role: "Sales Manager",
+  },
+];
 
 const About = () => {
+  const onChange = (key) => {
+    console.log(key);
+  };
   return (
     <>
       <Head>
@@ -60,115 +122,60 @@ const About = () => {
             </section>
             <section>
               <Row gutter={[20, 10]}>
-                <Col sm={24} md={12} lg={6}>
-                  <Card hoverable={true} style={{ textAlign: "center" }}>
-                    <Image src={shipping} alt="Shipping" />
-                    <Meta
-                      title="Free Shipping"
-                      description="Free shipping on all Dhaka order or order above $200"
-                    />
-                  </Card>
-                </Col>
-                <Col sm={24} md={12} lg={6}>
-                  <Card hoverable={true} style={{ textAlign: "center" }}>
-                    <Image src={support} alt="Support" />
-                    <Meta
-                      title="24X7 Support"
-                      description="Contact us 24 hours a day, 7 days a week. For any problem or any solution"
-                    />
-                  </Card>
-                </Col>
-                <Col sm={24} md={12} lg={6}>
-                  <Card hoverable={true} style={{ textAlign: "center" }}>
-                    <Image src={inventory} alt="Return" />
-                    <Meta
-                      title="30 Days Return"
-                      description="Simply return it within 30 days for an exchange. You can choose other"
-                    />
-                  </Card>
-                </Col>
-                <Col sm={24} md={12} lg={6}>
-                  <Card hoverable={true} style={{ textAlign: "center" }}>
-                    <Image src={creditCard} alt="Payment" />
-                    <Meta
-                      title="Payment Secure"
-                      description="You can payment us securely. it will be secret from others"
-                    />
-                  </Card>
-                </Col>
+                {facilitiesContent.map((facility, ind) => {
+                  const { image, title, description } = facility;
+                  return (
+                    <Col key={ind} sm={24} md={12} lg={6}>
+                      <Card hoverable={true} style={{ textAlign: "center" }}>
+                        <Image src={image} alt="" />
+                        <Meta title={title} description={description} />
+                      </Card>
+                    </Col>
+                  );
+                })}
               </Row>
             </section>
 
             <section>
               <Title level={3}>Our Teams</Title>
               <Row gutter={[20, 20]}>
-                <Col sm={24} md={12} lg={6}>
-                  <Card
-                    bordered={false}
-                    cover={
-                      <Image
-                        src="https://images.unsplash.com/photo-1480429370139-e0132c086e2a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
-                        alt=""
-                        width={1250}
-                        height={450}
-                        style={{ width: "100%", height: "100%" }}
-                      />
-                    }
-                  >
-                    <Meta title="Tony Williams" description="FOUNDER / CEO" />
-                  </Card>
-                </Col>
-                <Col sm={24} md={12} lg={6}>
-                  <Card
-                    bordered={false}
-                    cover={
-                      <Image
-                        src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                        alt="George S."
-                        width={1250}
-                        height={450}
-                        style={{ width: "100%", height: "100%" }}
-                      />
-                    }
-                  >
-                    <Meta title="George S." description="FOUNDER" />
-                  </Card>
-                </Col>
-                <Col sm={24} md={12} lg={6}>
-                  <Card
-                    bordered={false}
-                    cover={
-                      <Image
-                        src="https://images.unsplash.com/photo-1581803118522-7b72a50f7e9f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                        alt="Marjorie Barney"
-                        width={1250}
-                        height={450}
-                        style={{ width: "100%", height: "100%" }}
-                      />
-                    }
-                  >
-                    <Meta title="Marjorie Barney" description="DESIGNER" />
-                  </Card>
-                </Col>
-                <Col sm={24} md={12} lg={6}>
-                  <Card
-                    bordered={false}
-                    cover={
-                      <Image
-                        src="https://images.unsplash.com/photo-1615109398623-88346a601842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-                        alt="Jack Jelian"
-                        width={1250}
-                        height={450}
-                        style={{ width: "100%", height: "100%" }}
-                      />
-                    }
-                  >
-                    <Meta title="Jack Jelian" description="SALES MANAGER" />
-                  </Card>
-                </Col>
+                {teams.map((team, ind) => {
+                  const { image, name, role } = team;
+                  return (
+                    <Col sm={24} md={12} lg={6} key={ind}>
+                      <Card
+                        bordered={false}
+                        cover={
+                          <Image
+                            src={image}
+                            alt={name}
+                            width={1250}
+                            height={450}
+                            style={{ width: "100%", height: "100%" }}
+                          />
+                        }
+                      >
+                        <Meta title={name} description={role.toUpperCase()} />
+                      </Card>
+                    </Col>
+                  );
+                })}
               </Row>
             </section>
             <section>Testimonials Coming Soon</section>
+            <section>
+              <Collapse defaultActiveKey={["1"]} onChange={onChange}>
+                <Panel header="This is panel header 1" key="1">
+                  <p>{text}</p>
+                </Panel>
+                <Panel header="This is panel header 2" key="2">
+                  <p>{text}</p>
+                </Panel>
+                <Panel header="This is panel header 3" key="3">
+                  <p>{text}</p>
+                </Panel>
+              </Collapse>
+            </section>
           </div>
         </section>
       </main>
