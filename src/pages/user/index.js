@@ -16,6 +16,7 @@ import useAuth from "../../hooks/useAuth";
 import { Layout, Menu } from "antd";
 import { FaShuttleVan } from "react-icons/fa";
 import { useRouter } from "next/router";
+import InvoiceDocument from "./invoice";
 const { Header, Content, Footer, Sider } = Layout;
 
 function getItem(label, key, icon, children) {
@@ -108,7 +109,7 @@ const UserProfile = () => {
               {selected === "Profile" && <Profile />}
               {selected === "History" && <History />}
               {selected === "Wishlist" && <WishList />}
-              {selected === "Invoice" && <Invoice />}
+              {selected === "Invoice" && <InvoiceDocument />}
               {selected === "TrackOrder" && <TrackOder />}
               {selected === "Logout" && handleLogOut()}
             </div>
