@@ -3,7 +3,7 @@ import React from "react";
 
 const InvoiceTitle = ({ title }) => {
   return (
-    <View>
+    <View style={{ textAlign: "center" }}>
       <Text>{title}</Text>
     </View>
   );

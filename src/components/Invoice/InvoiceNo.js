@@ -4,11 +4,11 @@ import React, { Fragment } from "react";
 const InvoiceNo = ({ date, id }) => {
   return (
     <Fragment>
-      <View>
+      <View style={{ textAlign: "right" }}>
         <Text>Invoice No:</Text>
         <Text>{id}</Text>
       </View>
-      <View>
+      <View style={{ textAlign: "right" }}>
         <Text>Date:</Text>
         <Text>{date}</Text>
       </View>

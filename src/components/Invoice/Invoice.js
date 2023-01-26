@@ -19,14 +19,13 @@ const Invoice = ({ invoiceData }) => {
     phone,
     trans_date,
   } = invoiceData;
-  console.log(invoiceData);
   return (
     <Document>
-      <Page>
+      <Page style={{ padding: 16 }}>
         <Image
           source="https://tech.shutterstock.com/assets/img/posts/2019/0312-02.jpg"
-          alt={name}
-          style={{ width: 100, height: 100 }}
+          alt={company}
+          style={{ width: 100, height: 100, margin: "auto" }}
         />
         <InvoiceTitle title="Invoice" />
         <InvoiceNo date={trans_date} id={invoice_no} />

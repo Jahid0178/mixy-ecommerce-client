@@ -3,7 +3,7 @@ import { Text, View } from "@react-pdf/renderer";
 
 const BillTo = ({ company, address, phone, email }) => {
   return (
-    <View>
+    <View style={{ fontSize: 16 }}>
       <Text>Bill To: </Text>
       <Text>{company}</Text>
       <Text>{address}</Text>

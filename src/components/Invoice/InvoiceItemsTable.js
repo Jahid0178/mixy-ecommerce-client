@@ -2,7 +2,6 @@ import { Text, View } from "@react-pdf/renderer";
 import React from "react";
 
 const InvoiceItemsTable = ({ items }) => {
-  console.log(items);
   return (
     <View>
       <View>
