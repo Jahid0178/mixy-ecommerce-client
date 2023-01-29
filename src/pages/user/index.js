@@ -79,7 +79,10 @@ const UserProfile = () => {
               alignItems: "center",
             }}
           >
-            {displayName || email}
+            {displayName
+              ?.split(" ")[0]
+              .slice(0, 1)
+              .concat(displayName?.split(" ")[1].slice(0, 1)) || email}
           </div>
           <Menu
             theme="dark"
