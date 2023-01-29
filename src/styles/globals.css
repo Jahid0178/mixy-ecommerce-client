@@ -148,6 +148,23 @@ input {
   color: #15bd68;
 }
 
+/* Ant Design modify override */
+
+.ant-layout .ant-layout-header,
+.ant-layout .ant-layout-sider,
+.ant-layout .ant-layout-sider-trigger,
+.ant-menu-dark {
+  background: #184d47;
+}
+
+.ant-steps
+  .ant-steps-item-finish
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title::after {
+  background-color: #15bd68;
+}
+
 @media only screen and (max-width: 688px) {
   .desktop {
     display: none;
