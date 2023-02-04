@@ -16,8 +16,8 @@ const Profile = () => {
   console.log(userInfo);
   return (
     <div>
-      <Row gutter={20}>
-        <Col sm={24} md={12} lg={6}>
+      <Row gutter={[20, 20]}>
+        <Col sm={24} md={12} lg={6} style={{ width: "100%" }}>
           <div className={styles.contentBox}>
             <Title level={4} style={{ marginBottom: 0, textAlign: "center" }}>
               User Profile Display
@@ -45,7 +45,7 @@ const Profile = () => {
             </div>
           </div>
         </Col>
-        <Col sm={24} md={12} lg={18}>
+        <Col sm={24} md={12} lg={18} style={{ width: "100%" }}>
           <div className={styles.contentBox}>
             <Title level={4} style={{ marginBottom: 0 }}>
               Profile Information
@@ -117,7 +117,11 @@ const Profile = () => {
                     id="country"
                   />
                 </div>
-                <input className={styles.formSubmitBtn} type="submit" />
+                <input
+                  className={styles.formSubmitBtn}
+                  type="submit"
+                  value="Update"
+                />
               </form>
             </div>
           </div>

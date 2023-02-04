@@ -6,7 +6,7 @@ import styles from "./style.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
 import useAuth from "../../hooks/useAuth";
-import { Badge, Drawer } from "antd";
+import { Badge, Drawer, Tooltip } from "antd";
 import Button from "../common/Buttons/Button";
 import { Typography } from "antd";
 
@@ -83,12 +83,14 @@ const Navbar = () => {
               <li className={styles.navbarLists}>
                 {displayName || email ? (
                   <Link href="/user">
-                    <Paragraph
-                      style={{ margin: 0, fontSize: 16, fontWeight: 600 }}
-                      ellipsis={true}
-                    >
-                      Welcome To {displayName || email}
-                    </Paragraph>
+                    <Tooltip title="Dashboard">
+                      <Paragraph
+                        style={{ margin: 0, fontSize: 16, fontWeight: 600 }}
+                        ellipsis={true}
+                      >
+                        Welcome To {displayName || email}
+                      </Paragraph>
+                    </Tooltip>
                   </Link>
                 ) : (
                   <Link href="/login">Login</Link>
