@@ -13,3 +13,32 @@
   border-radius: 50%;
   margin-bottom: 1rem;
 }
+
+.formContainer {
+  margin-top: 1rem;
+}
+
+.formGroup {
+  margin-bottom: 1rem;
+}
+
+.formGroup label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.formGroup input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 0.3rem;
+}
+
+.formSubmitBtn {
+  padding: 0.6rem 0.8rem;
+  border: 0;
+  background: #184d47;
+  border-radius: 0.3rem;
+  color: #fff;
+  cursor: pointer;
+}
