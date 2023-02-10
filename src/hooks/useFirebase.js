@@ -4,6 +4,9 @@ import {
   getAuth,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -33,11 +36,13 @@ const useFirebase = () => {
       });
   };
 
-  // User sign out
-  const logOut = () => {
-    signOut(auth)
-      .then(() => {
-        setUserInfo({});
+  // User sign up with email and password
+  const signUpWithEmailPassword = ({ email, password }) => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        verifyEmail();
+        const user = userCredential.user;
+        console.log(user);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -47,10 +52,34 @@ const useFirebase = () => {
 
   // User sign in with email and password
   const signInWithEmailPassword = ({ email, password }) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        console.log(user);
+    signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user);
+    });
+  };
+
+  // Verify user email address
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser).then((result) => {
+      console.log(result);
+    });
+  };
+
+  // User password reset
+  const passwordReset = ({ email }) => {
+    sendPasswordResetEmail(auth, email)
+      .then((result) => {})
+      .catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
+  };
+
+  // User sign out
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        setUserInfo({});
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -73,7 +102,9 @@ const useFirebase = () => {
     userInfo,
     error,
     signInWithGoogle,
+    signUpWithEmailPassword,
     signInWithEmailPassword,
+    passwordReset,
     logOut,
   };
 };

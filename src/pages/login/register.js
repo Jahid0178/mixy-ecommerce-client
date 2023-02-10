@@ -14,7 +14,7 @@ import useAuth from "../../hooks/useAuth";
 const { Title } = Typography;
 
 const Register = () => {
-  const { signInWithEmailPassword, signInWithGoogle } = useAuth();
+  const { signUpWithEmailPassword, signInWithGoogle } = useAuth();
   const [messageApi, contextHolder] = message.useMessage();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -24,7 +24,7 @@ const Register = () => {
         content: "Password not matched.",
       });
     } else {
-      signInWithEmailPassword(data);
+      signUpWithEmailPassword(data);
     }
   };
 

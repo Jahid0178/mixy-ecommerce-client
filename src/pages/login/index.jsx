@@ -12,11 +12,10 @@ import useAuth from "../../hooks/useAuth";
 const { Title, Paragraph } = Typography;
 
 const Login = () => {
-  const { signInWithGoogle } = useAuth();
-  const { push } = useRouter();
+  const { signInWithGoogle, signInWithEmailPassword } = useAuth();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    signInWithEmailPassword(data);
   };
 
   const handleGoogleButton = () => {
@@ -53,7 +52,6 @@ const Login = () => {
                       placeholder="Enter your email address"
                       {...register("email", {
                         required: true,
-                        maxLength: 20,
                       })}
                     />
                   </div>
@@ -66,6 +64,17 @@ const Login = () => {
                       {...register("password", { required: true })}
                     />
                   </div>
+                  <Link
+                    href="/authentication/forgetPassword"
+                    style={{
+                      marginBottom: 10,
+                      display: "inline-block",
+                      color: "#ff4d4f",
+                    }}
+                  >
+                    Forgotten Password?
+                  </Link>
+                  <br />
                   <input
                     className={styles.buttonPrimary}
                     type="submit"
