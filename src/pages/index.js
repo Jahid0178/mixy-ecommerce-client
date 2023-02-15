@@ -165,7 +165,7 @@ const Home = () => {
                     },
                   }}
                 >
-                  {newArrivals.map((product) => (
+                  {newArrivals?.map((product) => (
                     <SwiperSlide key={product.id}>
                       <ProductCard product={product} />
                     </SwiperSlide>

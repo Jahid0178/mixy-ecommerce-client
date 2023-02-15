@@ -68,7 +68,9 @@ const useFirebase = () => {
   // User password reset
   const passwordReset = ({ email }) => {
     sendPasswordResetEmail(auth, email)
-      .then((result) => {})
+      .then((result) => {
+        console.log(result);
+      })
       .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);

@@ -6,7 +6,7 @@ const loadProductData = () => {
       const response = await fetch("https://dummyjson.com/products");
       const data = await response.json();
 
-      if (data.products.length) {
+      if (data.products) {
         dispatch(loadProducts(data.products));
       }
     } catch (err) {

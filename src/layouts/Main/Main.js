@@ -8,7 +8,7 @@ const Main = ({ children }) => {
     <div>
       <Navbar />
       {children}
-      <footer>{pathname === "/user" ? null : <Footer />}</footer>
+      <footer>{pathname === "/user" || "/admin" ? null : <Footer />}</footer>
     </div>
   );
 };
