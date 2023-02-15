@@ -154,7 +154,7 @@ input {
 .ant-layout .ant-layout-sider,
 .ant-layout .ant-layout-sider-trigger,
 .ant-menu-dark {
-  background: #184d47;
+  background: #184d47 !important;
 }
 
 .ant-steps
