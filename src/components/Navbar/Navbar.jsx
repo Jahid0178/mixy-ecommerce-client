@@ -6,9 +6,11 @@ import styles from "./style.module.css";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsCart4 } from "react-icons/bs";
 import useAuth from "../../hooks/useAuth";
-import { Badge, Drawer, Tooltip } from "antd";
+import { Badge, Col, Drawer, Row, Tooltip, Empty } from "antd";
 import Button from "../common/Buttons/Button";
 import { Typography } from "antd";
+import { useSelector } from "react-redux";
+import CartCard from "../cards/CartCard/CartCard";
 
 const { Paragraph } = Typography;
 
@@ -32,6 +34,7 @@ const navigationLinks = [
 ];
 
 const Navbar = () => {
+  const { productCount, cartProducts } = useSelector((state) => state.cart);
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const { userInfo } = useAuth();
@@ -44,6 +47,8 @@ const Navbar = () => {
   const onClose = () => {
     setOpen(false);
   };
+
+  console.log(cartProducts);
 
   return (
     <>
@@ -75,7 +80,7 @@ const Navbar = () => {
               })}
               <li className={styles.navbarLists}>
                 <Link href="#" onClick={showDrawer}>
-                  <Badge count={0} showZero>
+                  <Badge count={!productCount ? 0 : productCount} showZero>
                     <BsCart4 size={20} style={{ color: "000" }} />
                   </Badge>
                 </Link>
@@ -119,13 +124,32 @@ const Navbar = () => {
             flexDirection: "column",
           }}
         >
-          <div>
-            <p>Product 1</p>
-            <p>Product 2</p>
-            <p>Product 3</p>
+          <div
+            style={{
+              maxHeight: "820px",
+              height: "100%",
+              overflowX: "hidden",
+              overflowY: "scroll",
+            }}
+          >
+            <Row gutter={[8, 8]}>
+              {cartProducts?.length ? (
+                <>
+                  {cartProducts?.map((cartProduct, ind) => (
+                    <Col key={ind} span={24}>
+                      <CartCard key={ind} product={cartProduct} />
+                    </Col>
+                  ))}
+                </>
+              ) : (
+                <div style={{ width: "100%" }}>
+                  <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
+                </div>
+              )}
+            </Row>
           </div>
 
-          <div>
+          <div style={{ marginTop: "1rem" }}>
             <Button style={{ width: "100%" }} value="Checkout" />
           </div>
         </div>

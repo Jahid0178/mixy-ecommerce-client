@@ -1,4 +1,4 @@
-import { Card, Rate, Tag, Typography } from "antd";
+import { Card, Rate, Tag, Typography, Badge } from "antd";
 import {
   EyeOutlined,
   HeartOutlined,
@@ -7,11 +7,14 @@ import {
 import styles from "./productCard.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/actions/cartAction";
 
 const { Meta } = Card;
 const { Text } = Typography;
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const { push } = router;
   const {
@@ -38,11 +41,12 @@ const ProductCard = ({ product }) => {
           />
         }
         actions={[
-          <ShoppingCartOutlined
-            key="Cart"
-            title="Cart"
-            onClick={() => console.log("You clicked cart")}
-          />,
+          <Badge key="Cart" count={0} size="small">
+            <ShoppingCartOutlined
+              title="Cart"
+              onClick={() => dispatch(addToCart(product))}
+            />
+          </Badge>,
           <EyeOutlined
             key="Quick View"
             title="Quick View"
