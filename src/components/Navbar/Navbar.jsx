@@ -48,8 +48,6 @@ const Navbar = () => {
     setOpen(false);
   };
 
-  console.log(cartProducts);
-
   return (
     <>
       <nav className={styles.mainNav}>

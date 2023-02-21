@@ -1,12 +1,14 @@
 import React from "react";
 import { Card, Col, Row, Typography } from "antd";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../../../redux/actions/cartAction";
 
 const { Title, Paragraph } = Typography;
 
 const CartCard = ({ product }) => {
-  const { title, brand, price, thumbnail, category } = product;
-  console.log(product);
+  const { title, brand, price, thumbnail, category, id } = product;
+  const dispatch = useDispatch();
   return (
     <Card>
       <Row gutter={[8, 8]}>
@@ -25,7 +27,9 @@ const CartCard = ({ product }) => {
           </Paragraph>
         </Col>
       </Row>
-      <button style={removeBtn}>Remove From Cart</button>
+      <button style={removeBtn} onClick={() => dispatch(removeFromCart(id))}>
+        Remove From Cart
+      </button>
     </Card>
   );
 };
