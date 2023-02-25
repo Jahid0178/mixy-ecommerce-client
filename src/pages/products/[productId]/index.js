@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import loadSingleProduct from "../../../redux/thunk/products/fetchSingleProduct";
 import { loadingStart } from "../../../redux/actions/productAction";
 import { LoadingOutlined } from "@ant-design/icons";
+import { addToCart } from "../../../redux/actions/cartAction";
 
 const { Title, Paragraph } = Typography;
 
@@ -96,7 +97,10 @@ const ProductDetails = () => {
                     onChange={onChange}
                     defaultValue={1}
                   />
-                  <Button value="Add To Cart" />
+                  <Button
+                    value="Add To Cart"
+                    onClick={() => dispatch(addToCart(product))}
+                  />
                 </div>
               )}
             </Col>
